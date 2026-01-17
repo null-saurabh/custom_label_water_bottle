@@ -1,7 +1,10 @@
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/bottle_size_inquiry.dart';
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_info_section_inquiry.dart' show BusinessInfoSection;
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_type_chips_inquiry.dart' show BusinessTypeChips;
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/delivery_into_inquiry.dart';
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/montly_quantity_inquiry.dart';
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/trust_footer_inquiry.dart';
+import 'package:cwbl_website/widgets/premium_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/design_token.dart' show DT;
@@ -23,6 +26,11 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
   final _phoneCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
 
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController deliveryController = TextEditingController();
+  final TextEditingController notesController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +44,7 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 40,
               offset: const Offset(0, 24),
             ),
@@ -71,7 +79,7 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               },
             ),
 
-            const SizedBox(height: 28),
+            const SizedBox(height: 20),
 
             MonthlyQuantitySection(
               value: formData.monthlyQuantity,
@@ -82,7 +90,7 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               },
             ),
 
-            SizedBox(height: 28),
+            SizedBox(height: 20),
 
             BottleSizeSection(
               selected: formData.bottleSizes,
@@ -97,22 +105,53 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               },
             ),
             //
-            // _LocationSection(),
-            // SizedBox(height: 28),
-            //
-            // _NotesSection(),
-            // SizedBox(height: 36),
+            SizedBox(height: 12),
 
-            const _SubmitSection(),
-            const SizedBox(height: 28),
+            DeliveryInfoSection(
+              cityController: cityController,
+              stateController: stateController,
+              deliveryController: deliveryController,
+              notesController: notesController,
 
-            const _TrustFooter(),
+            ),
+            const SizedBox(height: 12),
+
+            const Divider(
+              color: DT.border,
+              thickness: 1,
+              height: 24,
+            ),
+
+            Center(child: const _SubmitSection()),
+
+            const Divider(
+              color: DT.border,
+              thickness: 1,
+              height: 24,
+            ),
+            const TrustFooter(),
           ],
         ),
       ),
     );
   }
+
+
+  @override
+  void dispose() {
+    _businessCtrl.dispose();
+    _contactCtrl.dispose();
+    _phoneCtrl.dispose();
+    _emailCtrl.dispose();
+    cityController.dispose();
+    stateController.dispose();
+    deliveryController.dispose();
+    notesController.dispose();
+    super.dispose();
+  }
+
 }
+
 
 
 
@@ -174,68 +213,33 @@ class _SubmitSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width: 320,
-          height: 56,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF3558C9),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(28),
-              ),
-              elevation: 12,
-            ),
-            child: const Text(
-              "Submit Bulk Enquiry",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-          ),
+        PremiumButton(
+          text: 'Submit Bulk Enquiry',
+          onTap: () {},
         ),
         const SizedBox(height: 12),
-        const Text(
-          "We’ll contact you within 24 business hours. No spam. No obligation.",
-          style: TextStyle(fontSize: 13, color: Color(0xFF5A6B85)),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              Icons.lock_outline,
+              size: 16,
+              color: Color(0xFF5A6B85),
+            ),
+            SizedBox(width: 6),
+            Text(
+              "We’ll contact you within 24 business hours. No spam. No obligation.",
+              style: TextStyle(
+                fontSize: 13,
+                color: Color(0xFF5A6B85),
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
 }
 
-class _TrustFooter extends StatelessWidget {
-  const _TrustFooter();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        _TrustItem("Quality Certified"),
-        SizedBox(width: 24),
-        _TrustItem("Food-Grade Packaging"),
-        SizedBox(width: 24),
-        _TrustItem("Bulk Supply Ready"),
-      ],
-    );
-  }
-}
-
-class _TrustItem extends StatelessWidget {
-  final String text;
-  const _TrustItem(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(Icons.verified, size: 18, color: Color(0xFF3558C9)),
-        const SizedBox(width: 6),
-        Text(
-          text,
-          style: const TextStyle(fontSize: 14, color: Color(0xFF1F2A44)),
-        ),
-      ],
-    );
-  }
-}
 
