@@ -1,5 +1,7 @@
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/bottle_size_inquiry.dart';
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_info_section_inquiry.dart' show BusinessInfoSection;
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_type_chips_inquiry.dart' show BusinessTypeChips;
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/montly_quantity_inquiry.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/design_token.dart' show DT;
@@ -71,11 +73,29 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
 
             const SizedBox(height: 28),
 
-            // _QuantitySection(),
-            // SizedBox(height: 28),
-            //
-            // _BottleAndLabelSection(),
-            // SizedBox(height: 28),
+            MonthlyQuantitySection(
+              value: formData.monthlyQuantity,
+              onChanged: (val) {
+                setState(() {
+                  formData.monthlyQuantity = val;
+                });
+              },
+            ),
+
+            SizedBox(height: 28),
+
+            BottleSizeSection(
+              selected: formData.bottleSizes,
+              onToggle: (size) {
+                setState(() {
+                  if (formData.bottleSizes.contains(size)) {
+                    formData.bottleSizes.remove(size);
+                  } else {
+                    formData.bottleSizes.add(size);
+                  }
+                });
+              },
+            ),
             //
             // _LocationSection(),
             // SizedBox(height: 28),
