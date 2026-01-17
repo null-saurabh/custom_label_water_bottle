@@ -2,6 +2,8 @@ import 'package:cwbl_website/core/theme/design_token.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/page_container.dart';
 import '../../../widgets/premium_button.dart';
+import 'package:go_router/go_router.dart';
+
 
 class LifestyleSection extends StatelessWidget {
   const LifestyleSection({super.key});
@@ -46,7 +48,9 @@ class LifestyleSection extends StatelessWidget {
                 const SizedBox(height: 8),
                 PremiumButton(
                   text: 'Request Bulk Order',
-                  onTap: () {},
+                  onTap: () {
+                    context.go('/inquiry');
+                  },
                 ),
               ],
             ),
