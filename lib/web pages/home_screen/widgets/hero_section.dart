@@ -5,8 +5,8 @@ import '../../../widgets/premium_button.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 
-class HeroSection extends StatelessWidget {
-  const HeroSection({super.key});
+class HeroSectionHomePage extends StatelessWidget {
+  const HeroSectionHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
