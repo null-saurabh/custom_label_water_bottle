@@ -1,6 +1,4 @@
-import 'package:cwbl_website/web%20pages/home_screen/widgets/hero_section.dart' show HeroSectionHomePage;
-import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/bottom_trust_strip.dart';
-import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry.dart' show EnquiryFormSection;
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/form_section_inquiry.dart' show EnquiryFormSection;
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/hero_section_inquiry.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +29,7 @@ class BulkEnquiryPage extends StatelessWidget {
                 child: Column(
                   children: [
                     HeroSectionInquiry(),
-                    const SizedBox(height: 40),
+                    // const SizedBox(height: 40),
                     EnquiryFormSection(),
                     // const SizedBox(height: 60),
                     // TrustStrip(),

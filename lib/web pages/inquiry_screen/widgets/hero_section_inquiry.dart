@@ -85,9 +85,12 @@ class HeroSectionInquiry extends StatelessWidget {
             const SizedBox(width: 60),
             Align(
               alignment: Alignment.centerRight,
-              child: Image.asset(
-                'assets/bottles/sample_4_no_shadow.png',
-                height: 420,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Image.asset(
+                  'assets/bottles/sample_4_no_shadow.png',
+                  height: 420,
+                ),
               ),
             )
           ],
