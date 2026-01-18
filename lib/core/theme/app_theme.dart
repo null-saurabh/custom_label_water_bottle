@@ -27,11 +27,12 @@ class AppTheme {
 
       // SECTION HEADINGS
       displayMedium: GoogleFonts.playfairDisplay(
-        fontSize: 34,
-        fontWeight: FontWeight.w600,
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
         height: 1.25,
         color: DT.heading,
       ),
+
 
       displaySmall: GoogleFonts.playfairDisplay(
         fontSize: 16,
@@ -40,6 +41,12 @@ class AppTheme {
         color: DT.heading,
       ),
 
+      titleMedium: GoogleFonts.playfairDisplay(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+        height: 1.25,
+        color: DT.heading,
+      ),
       // SUBHEADINGS
       titleLarge: GoogleFonts.inter(
         fontSize: 20,

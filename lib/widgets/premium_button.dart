@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/responsive.dart';
 import '../core/theme/design_token.dart';
 
 class PremiumButton extends StatefulWidget {
@@ -70,9 +71,9 @@ class _PremiumButtonState extends State<PremiumButton> {
             onTap: widget.isLoading ? null : widget.onTap,
 
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 34,
-                vertical: 16,
+              padding:  EdgeInsets.symmetric(
+                horizontal: Responsive.isMobile(context) ? 10:34,
+                vertical: Responsive.isMobile(context) ?12 :16,
               ),
               child: widget.isLoading
             ? const SizedBox(
@@ -83,17 +84,19 @@ class _PremiumButtonState extends State<PremiumButton> {
                 color: Colors.white,
               ),
             )
-                : Text(
-            widget.text,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.3,
-              color: widget.isPrimary
-                  ? Colors.white
-                  : DT.heading,
-            ),
-          ),
+                : Center(
+                  child: Text(
+                              widget.text,
+                              style: TextStyle(
+                                fontSize: Responsive.isMobile(context)? 14 : 16,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.3,
+                                color: widget.isPrimary
+                    ? Colors.white
+                    : DT.heading,
+                              ),
+                            ),
+                ),
 
         ),
           ),
