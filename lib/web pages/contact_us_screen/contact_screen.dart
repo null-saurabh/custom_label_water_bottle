@@ -1,6 +1,6 @@
+import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_availability_trust_section/contact_availability_strip.dart';
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_left/contact_hero_left.dart';
-import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/widgets/contact_illustration.dart';
-import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_trust_strip.dart';
+import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/contact_hero_right.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/site_header.dart';
@@ -37,16 +37,16 @@ class ContactScreen extends StatelessWidget {
                     children:  [
                       Expanded(flex: 4, child: ContactLeft()),
                       SizedBox(width: 60),
-                      Expanded(flex: 4, child: ContactIllustration()),
+                      Expanded(flex: 4, child: ContactRight()),
                     ],
                   ),
                 ),
               ),
             ),
 
-            SizedBox(height: 80),
+            SizedBox(height: 32),
 
-            ContactTrustStrip(),
+            ContactAvailabilityStrip(),
 
             SizedBox(height: 80),
           ],

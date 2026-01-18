@@ -33,6 +33,13 @@ class AppTheme {
         color: DT.heading,
       ),
 
+      displaySmall: GoogleFonts.playfairDisplay(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        height: 1.25,
+        color: DT.heading,
+      ),
+
       // SUBHEADINGS
       titleLarge: GoogleFonts.inter(
         fontSize: 20,
