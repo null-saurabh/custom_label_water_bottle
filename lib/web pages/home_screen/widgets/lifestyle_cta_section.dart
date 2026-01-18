@@ -46,12 +46,18 @@ class LifestyleSection extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                PremiumButton(
-                  text: 'Request Bulk Order',
-                  onTap: () {
-                    context.go('/inquiry');
-                  },
-                ),
+                Center(
+                  child: SizedBox(
+                    width: 220,
+                    child: PremiumButton(
+                      text: 'Request Bulk Order',
+                      onTap: () {
+                        context.go('/inquiry');
+                      },
+                    ),
+                  ),
+                )
+
               ],
             ),
           ),

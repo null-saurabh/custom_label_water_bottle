@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/theme/design_token.dart';
+
 class MonthlyQuantitySection extends StatelessWidget {
   final String value;
   final ValueChanged<String> onChanged;
@@ -35,7 +37,13 @@ class MonthlyQuantitySection extends StatelessWidget {
 
         DropdownButtonFormField<String>(
           initialValue: value.isEmpty ? null : value,
-          hint: const Text("Approx Monthly Quantity*"),
+          hint: const Text("Approx Monthly Quantity*",style: TextStyle(
+            fontFamily: 'Playfair Display', // Setting this to empty or null uses the system default
+            color: DT.heading,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),),
+
           items: items
               .map(
                 (e) => DropdownMenuItem(

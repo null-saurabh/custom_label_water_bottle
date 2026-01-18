@@ -40,7 +40,7 @@ class HeroSectionWidget extends StatelessWidget {
         Expanded(
           flex: 6,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 96),
+            padding: const EdgeInsets.symmetric(vertical: 96,horizontal: 72),
             // padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,11 +78,14 @@ class HeroSectionWidget extends StatelessWidget {
         ),
 
         // RIGHT (Bottle)
-        Align(
-          alignment: Alignment.centerRight,
-          child: Image.asset(
-            'assets/bottles/sample_0.png',
-            height: 520,
+        Padding(
+          padding: const EdgeInsets.only(right: 96.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Image.asset(
+              'assets/bottles/sample_0.png',
+              height: 520,
+            ),
           ),
         ),
       ],

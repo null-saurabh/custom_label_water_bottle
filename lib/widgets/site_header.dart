@@ -74,7 +74,8 @@ class SiteHeader extends StatelessWidget {
             onTap: () {
               context.go('/inquiry'); // HOME ROUTE
             },
-          ):NavItem(
+          )
+              :NavItem(
             label: 'Samples',
             onTap: () {
               context.go('/contact'); // HOME ROUTE
@@ -90,15 +91,19 @@ class SiteHeader extends StatelessWidget {
 
           Responsive.isMobile(context) ? SizedBox() :const Spacer(),
 
+
+
+
+
           Responsive.isMobile(context)
               ? SizedBox()
               : bgColor == null
-              ? PremiumButton(
-                  text: 'Request Bulk Order',
-                  onTap: () {
-                    context.go('/inquiry');
-                  },
-                )
+              ? HeaderActionButton(
+    text: 'Request Bulk Order',
+    onTap: () {
+    context.go('/inquiry');
+    },
+    )
               : Row(
                   children: [
                     Icon(Icons.facebook, color: Colors.grey, size: 28),
@@ -141,6 +146,56 @@ class NavItem extends StatelessWidget {
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: DT.heading,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class HeaderActionButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onTap;
+
+  const HeaderActionButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(28),
+        child: Container(
+          height: 44,
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          decoration: BoxDecoration(
+            color: const Color(0xFF3558C9),
+            borderRadius: BorderRadius.circular(28),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFF3558C9).withOpacity(0.25),
+                blurRadius: 14,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 14.5,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              letterSpacing: 0.2,
+            ),
           ),
         ),
       ),

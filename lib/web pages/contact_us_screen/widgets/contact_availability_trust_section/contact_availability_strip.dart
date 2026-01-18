@@ -80,8 +80,11 @@ class _TrustItemsRow extends StatelessWidget {
     return Responsive.isMobile(context)
         ? Column(
             children: const [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 16,
+                runSpacing: 8,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _TrustItem(
                     icon: Icons.inventory_2_outlined,
@@ -144,13 +147,14 @@ class _TrustItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon, size: iconSize ?? 18, color: Colors.blue),
-        const SizedBox(width: 8),
+         SizedBox(width: Responsive.isMobile(context) ? 4: 8),
         Text(
           label,
           style: TextStyle(
             fontSize: textSize ?? 14,
             fontWeight: FontWeight.w500,
             color: DT.heading,
+            // overflow: TextOverflow.ellipsis,
           ),
         ),
       ],

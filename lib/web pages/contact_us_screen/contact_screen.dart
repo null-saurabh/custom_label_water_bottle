@@ -58,7 +58,7 @@ class ContactScreen extends StatelessWidget {
                       SizedBox(width: Responsive.isMobile(context)?16:48,),
                       Icon(Icons.copyright_outlined,color: Colors.grey,size: 20,),
                       SizedBox(width: 4,),
-                      Text("2024 Custom Label Water Bottles. All rights reserved.",style: TextStyle(color: Colors.grey,fontSize: 12),),
+                      Expanded(child: Text("2024 Custom Label Water Bottles. All rights reserved.",style: TextStyle(color: Colors.grey,fontSize: 12,overflow:TextOverflow.ellipsis,))),
                     ],
                   ),
                   SizedBox(height: 40),

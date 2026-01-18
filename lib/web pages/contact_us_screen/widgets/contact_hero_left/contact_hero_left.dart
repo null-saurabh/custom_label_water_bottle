@@ -11,7 +11,7 @@ class ContactLeft extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(left: Responsive.isMobile(context) ? 16.0 : 0),
+      padding:  EdgeInsets.only(left: Responsive.isMobile(context) ? 16.0 : 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children:  [

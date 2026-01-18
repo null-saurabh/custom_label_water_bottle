@@ -354,11 +354,14 @@ class _SubmitSection extends StatelessWidget {
                         color: Color(0xFF5A6B85),
                       ),
                       SizedBox(width: 6),
-                      Text(
-                        "We’ll contact you within 24 business hours.",
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xFF5A6B85),
+                      Expanded(
+                        child: Text(
+                          "We’ll contact you within 24 business hours.",
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Color(0xFF5A6B85),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                     ],

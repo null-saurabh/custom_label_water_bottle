@@ -13,8 +13,11 @@ class TrustFooter extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 0,
+                runSpacing: 8,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   _TrustItem(
                     "Quality Certified",
