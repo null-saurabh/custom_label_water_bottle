@@ -2,6 +2,7 @@ import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/widgets/contact_reach_out_header.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/responsive.dart';
 import 'widgets/contact_details.dart';
 
 class ContactRight extends StatelessWidget {
@@ -9,18 +10,21 @@ class ContactRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        ContactIllustration(),
-        SizedBox(height: 20),
-        ReachOutHeader(),
-        SizedBox(height: 20),
-        ContactDetails(),
-        SizedBox(height: 12),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: Responsive.isMobile(context)?16.0:0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Responsive.isMobile(context)?SizedBox():ContactIllustration(),
+          Responsive.isMobile(context)?SizedBox(height: 8,):SizedBox(height: 20),
+          ReachOutHeader(),
+          SizedBox(height: 20),
+          ContactDetails(),
+          SizedBox(height: 12),
 
 
-      ],
+        ],
+      ),
     );
   }
 }

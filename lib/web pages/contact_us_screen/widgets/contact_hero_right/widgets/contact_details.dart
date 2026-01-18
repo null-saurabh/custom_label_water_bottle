@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/responsive.dart' show Responsive;
 import '../../../../../core/theme/design_token.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,7 +18,7 @@ class ContactDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  flex: 4,
+                  flex: Responsive.isMobile(context) ?10:4,
                   child: _InfoCard(
                     icon: Icons.phone,
                     title: "Call Us",
@@ -25,9 +26,9 @@ class ContactDetails extends StatelessWidget {
                     onTap: () => launchPhone("+918112552320"),
                   ),
                 ),
-                const SizedBox(width: 24),
+                 SizedBox(width:Responsive.isMobile(context) ? 8:24),
                 Expanded(
-                  flex: 6,
+                  flex: Responsive.isMobile(context) ?14:6,
                   child: _InfoCard(
                     icon: Icons.email,
                     title: "Email Us",

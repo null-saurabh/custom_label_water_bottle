@@ -1,8 +1,9 @@
 import 'package:cwbl_website/core/theme/design_token.dart';
+import 'package:cwbl_website/core/theme/gradients.dart';
 import 'package:flutter/material.dart';
+import '../core/responsive.dart';
 import 'premium_button.dart';
 import 'package:go_router/go_router.dart';
-
 
 class SiteHeader extends StatelessWidget {
   final Color? bgColor;
@@ -12,9 +13,9 @@ class SiteHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 72,
-      padding: const EdgeInsets.symmetric(horizontal: 48),
+      padding:  EdgeInsets.symmetric(horizontal: Responsive.isMobile(context)? 16: 48),
       decoration: BoxDecoration(
-        gradient: bgColor == null ? DT.heroGradient : null,
+        gradient: bgColor == null ? DT.heroGradient : AppGradients.footerTop,
         color: bgColor,
         border: Border(bottom: BorderSide(color: DT.border)),
       ),
@@ -28,19 +29,19 @@ class SiteHeader extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/icons/main_logo.png',
-                  height: 40, // smaller, tighter like reference
+                  height: Responsive.isMobile(context)?32:40, // smaller, tighter like reference
                   fit: BoxFit.contain,
                   color: Colors.blue,
                 ),
-                const SizedBox(width: 10),
+                 SizedBox(width:Responsive.isMobile(context)?4: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children:  [
                     Text(
                       'Custom Label',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: Responsive.isMobile(context)?14:16,
                         fontWeight: FontWeight.w600,
                         color: DT.heading,
                         height: 1.2,
@@ -49,7 +50,7 @@ class SiteHeader extends StatelessWidget {
                     Text(
                       'Water Bottles',
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: Responsive.isMobile(context) ?11:13,
                         fontWeight: FontWeight.w400,
                         color: DT.body,
                         height: 1.2,
@@ -61,35 +62,60 @@ class SiteHeader extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          NavItem(label:'Home',onTap: (){
-            context.go('/'); // HOME ROUTE
-          },),
-          NavItem(label:'Samples',onTap: (){
-            context.go('/contact'); // HOME ROUTE
-          }),
-          NavItem(label:'Pricing',onTap: (){
-            context.go('/contact'); // HOME ROUTE
-          }),
-          NavItem(label:'Contact',onTap: (){
-            context.go('/contact'); // HOME ROUTE
-          },),
-          const Spacer(),
-
-          bgColor == null
-          ?PremiumButton(text: 'Request Bulk Order', onTap: () {
-            context.go('/inquiry');
-          })
-          : Row(
-            children: [
-              Icon(Icons.facebook,color: Colors.grey,size: 28,),
-              SizedBox(width: 8,),
-              Image.asset('assets/icons/instagram_2.png',color: Colors.grey,
-                height: 28,),
-              SizedBox(width: 4,),
-              Image.asset('assets/icons/twitter.png',color: Colors.grey,
-                height: 32,),
-            ],
+          NavItem(
+            label: 'Home',
+            onTap: () {
+              context.go('/'); // HOME ROUTE
+            },
           ),
+          Responsive.isMobile(context)
+          ?NavItem(
+            label: 'Inquiry',
+            onTap: () {
+              context.go('/inquiry'); // HOME ROUTE
+            },
+          ):NavItem(
+            label: 'Samples',
+            onTap: () {
+              context.go('/contact'); // HOME ROUTE
+            },
+          ),
+
+          NavItem(
+            label: 'Contact',
+            onTap: () {
+              context.go('/contact'); // HOME ROUTE
+            },
+          ),
+
+          Responsive.isMobile(context) ? SizedBox() :const Spacer(),
+
+          Responsive.isMobile(context)
+              ? SizedBox()
+              : bgColor == null
+              ? PremiumButton(
+                  text: 'Request Bulk Order',
+                  onTap: () {
+                    context.go('/inquiry');
+                  },
+                )
+              : Row(
+                  children: [
+                    Icon(Icons.facebook, color: Colors.grey, size: 28),
+                    SizedBox(width: 8),
+                    Image.asset(
+                      'assets/icons/instagram_2.png',
+                      color: Colors.grey,
+                      height: 28,
+                    ),
+                    SizedBox(width: 4),
+                    Image.asset(
+                      'assets/icons/twitter.png',
+                      color: Colors.grey,
+                      height: 32,
+                    ),
+                  ],
+                ),
         ],
       ),
     );
@@ -102,15 +128,13 @@ class NavItem extends StatelessWidget {
 
   const NavItem({super.key, required this.label, this.onTap});
 
-
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       // borderRadius: BorderRadius.circular(6),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding:  EdgeInsets.symmetric(horizontal: Responsive.isMobile(context)?6:16),
         child: Text(
           label,
           style: const TextStyle(

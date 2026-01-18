@@ -2,6 +2,8 @@ import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_avail
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_left/contact_hero_left.dart';
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/contact_hero_right.dart';
 import 'package:flutter/material.dart';
+import '../../core/responsive.dart';
+import '../../core/theme/gradients.dart';
 import '../../widgets/site_header.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -16,9 +18,8 @@ class ContactScreen extends StatelessWidget {
           children: [
             SiteHeader(),
 
-
             Container(
-              padding: const EdgeInsets.only(top: 60.0,bottom: 30),
+              padding:  EdgeInsets.only(top: Responsive.isMobile(context) ? 20.0: 60,bottom: 30),
 
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -31,36 +32,41 @@ class ContactScreen extends StatelessWidget {
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1100),
-                  child: const Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
-                      Expanded(flex: 4, child: ContactLeft()),
-                      SizedBox(width: 60),
-                      Expanded(flex: 4, child: ContactRight()),
-                    ],
-                  ),
+                  child: _buildHero(context),
                 ),
               ),
             ),
 
-            SizedBox(height: 32),
+            SizedBox(height: Responsive.isMobile(context)?0:32),
 
             ContactAvailabilityStrip(),
 
             SiteHeader(bgColor: Colors.white,),
 
-            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                gradient: Responsive.isMobile(context)
+                    ? AppGradients.footerBottom
+                    : null
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
 
-            Row(
-              children: [
-                SizedBox(width: 48,),
-                Icon(Icons.copyright_outlined,color: Colors.grey,size: 20,),
-                SizedBox(width: 4,),
-                Text("2024 Custom Label Water Bottles. All rights reserved.",style: TextStyle(color: Colors.grey,fontSize: 14),),
-              ],
+                  Row(
+                    children: [
+                      SizedBox(width: Responsive.isMobile(context)?16:48,),
+                      Icon(Icons.copyright_outlined,color: Colors.grey,size: 20,),
+                      SizedBox(width: 4,),
+                      Text("2024 Custom Label Water Bottles. All rights reserved.",style: TextStyle(color: Colors.grey,fontSize: 12),),
+                    ],
+                  ),
+                  SizedBox(height: 40),
+
+                ],
+              ),
             ),
 
-            SizedBox(height: 40),
 
 
           ],
@@ -69,3 +75,29 @@ class ContactScreen extends StatelessWidget {
     );
   }
 }
+
+
+Widget _buildHero(BuildContext context) {
+  if (Responsive.isMobile(context)) {
+    return Column(
+      children: const [
+        // ContactHeroImageMobile(), // bottle image first
+        // SizedBox(height: 24),
+        ContactLeft(),             // text + form
+        SizedBox(height: 24),
+        ContactRight()
+      ],
+    );
+  }
+
+  // Tablet & Desktop
+  return const Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Expanded(flex: 4, child: ContactLeft()),
+      SizedBox(width: 60),
+      Expanded(flex: 4, child: ContactRight()),
+    ],
+  );
+}
+
