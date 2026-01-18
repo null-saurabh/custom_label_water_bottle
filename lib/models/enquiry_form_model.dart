@@ -13,6 +13,19 @@ class EnquiryFormDataModel {
   String deliveryLocation = '';
   String notes = '';
 
+  EnquiryFormDataModel({
+    this.businessName = '',
+    this.phone = '',
+    this.email = '',
+    this.notes = '',
+    this.businessType = '',
+    this.monthlyQuantity = '',
+    this.bottleSizes = const [],
+    this.city = '',
+    this.state = '',
+    this.deliveryLocation = '',
+  });
+
   Map<String, dynamic> toMap() {
     return {
       'businessName': businessName,
