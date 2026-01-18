@@ -1,17 +1,41 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class EnquiryFormDataModel {
   String businessName = '';
-  String contactPerson = '';
+  String contactName = '';
   String phone = '';
   String email = '';
-  String? businessType;
+  String businessType = '';
+  String monthlyQuantity = '';
+  List<String> bottleSizes = [];
+  String city = '';
+  String state = '';
+  String deliveryLocation = '';
+  String notes = '';
 
-  String? monthlyQuantity; // dropdown value
-
-  final Set<String> bottleSizes = {}; // multi-select
-
-  String? city;
-  String? state;
-  String? deliveryLocation;
-  String? additionalNotes;
-
+  Map<String, dynamic> toMap() {
+    return {
+      'businessName': businessName,
+      'contactName': contactName,
+      'phone': phone,
+      'email': email,
+      'businessType': businessType,
+      'monthlyQuantity': monthlyQuantity,
+      'bottleSizes': bottleSizes,
+      'city': city,
+      'state': state,
+      'deliveryLocation': deliveryLocation,
+      'notes': notes,
+      'status': 'new',
+      'createdAt': FieldValue.serverTimestamp(),
+    };
+  }
 }
+
+
+
+
+
+//  String? monthlyQuantity; // dropdown value
+//
+//   final Set<String> bottleSizes = {};

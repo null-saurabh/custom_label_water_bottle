@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MonthlyQuantitySection extends StatelessWidget {
-  final String? value;
-  final ValueChanged<String?> onChanged;
+  final String value;
+  final ValueChanged<String> onChanged;
 
   const MonthlyQuantitySection({super.key,
     required this.value,
@@ -34,7 +34,7 @@ class MonthlyQuantitySection extends StatelessWidget {
         const SizedBox(height: 12),
 
         DropdownButtonFormField<String>(
-          value: value,
+          initialValue: value.isEmpty ? null : value,
           hint: const Text("Approx Monthly Quantity*"),
           items: items
               .map(
@@ -44,7 +44,9 @@ class MonthlyQuantitySection extends StatelessWidget {
             ),
           )
               .toList(),
-          onChanged: onChanged,
+          onChanged: (val) {
+            if (val != null) onChanged(val);
+          },
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BottleSizeSection extends StatelessWidget {
-  final Set<String> selected;
-  final ValueChanged<String> onToggle;
+  final List<String> selected;
+  final ValueChanged<List<String>> onChanged;
 
-  const BottleSizeSection({super.key, required this.selected, required this.onToggle});
-
+  const BottleSizeSection({
+    super.key,
+    required this.selected,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,30 +30,39 @@ class BottleSizeSection extends StatelessWidget {
         Wrap(
           spacing: 24,
           runSpacing: 12,
-          children: sizes.map((size) {
+          children: ['250 ml', '500 ml', '1 L', 'Not sure'].map((size) {
             final isSelected = selected.contains(size);
 
             return InkWell(
-              borderRadius: BorderRadius.circular(8),
-              onTap: () => onToggle(size),
+              onTap: () {
+                final updated = List<String>.from(selected);
+
+                if (isSelected) {
+                  updated.remove(size);
+                } else {
+                  updated.add(size);
+                }
+
+                onChanged(updated);
+              },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Checkbox(
                     value: isSelected,
-                    onChanged: (_) => onToggle(size),
-                    activeColor: const Color(0xFF3558C9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4),
-                    ),
+                    onChanged: (_) {
+                      final updated = List<String>.from(selected);
+
+                      if (isSelected) {
+                        updated.remove(size);
+                      } else {
+                        updated.add(size);
+                      }
+
+                      onChanged(updated);
+                    },
                   ),
-                  Text(
-                    size,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      color: Color(0xFF1F2A44),
-                    ),
-                  ),
+                  Text(size),
                 ],
               ),
             );

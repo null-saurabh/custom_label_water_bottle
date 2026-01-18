@@ -34,7 +34,7 @@ class BusinessTypeChips extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 0,
+              vertical: 12,
             ),
             decoration: BoxDecoration(
               color: isSelected
@@ -50,7 +50,7 @@ class BusinessTypeChips extends StatelessWidget {
                   ? [
                 BoxShadow(
                   color:
-                  const Color(0xFF3558C9).withOpacity(0.25),
+                  const Color(0xFF3558C9).withValues(alpha: 0.25),
                   blurRadius: 12,
                   offset: const Offset(0, 6),
                 )

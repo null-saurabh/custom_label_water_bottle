@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../core/theme/design_token.dart';
+
 class PremiumButton extends StatefulWidget {
   final String text;
   final VoidCallback onTap;
   final bool isPrimary;
+  final bool isLoading; // NEW
 
   const PremiumButton({
     super.key,
     required this.text,
     required this.onTap,
     this.isPrimary = true,
+    this.isLoading = false,
   });
+
 
   @override
   State<PremiumButton> createState() => _PremiumButtonState();
@@ -62,22 +67,35 @@ class _PremiumButtonState extends State<PremiumButton> {
           color: Colors.transparent,
           child: InkWell(
             borderRadius: BorderRadius.circular(999),
-            onTap: widget.onTap,
+            onTap: widget.isLoading ? null : widget.onTap,
+
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 34,
                 vertical: 16,
               ),
-              child: Text(
-                widget.text,
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: widget.isPrimary
-                      ? Colors.white
-                      : primaryBlue,
-                ),
-
+              child: widget.isLoading
+            ? const SizedBox(
+            width: 22,
+              height: 22,
+              child: CircularProgressIndicator(
+                strokeWidth: 2.5,
+                color: Colors.white,
               ),
+            )
+                : Text(
+            widget.text,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.3,
+              color: widget.isPrimary
+                  ? Colors.white
+                  : DT.heading,
             ),
+          ),
+
+        ),
           ),
         ),
       ),

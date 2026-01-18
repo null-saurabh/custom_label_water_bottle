@@ -113,9 +113,7 @@ class _InputField extends StatelessWidget {
      this.hint,
     this.hintWidget,
     this.controller,
-    this.maxLines = 1,
-    this.helperText,
-    this.suffixIcon,
+    this.maxLines = 1, this.helperText, this.suffixIcon,
   });
 
   @override
@@ -139,6 +137,7 @@ class _InputField extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           borderSide: const BorderSide(color: Color(0xFFE2E6EF)),
         ),
+
       ),
     );
   }

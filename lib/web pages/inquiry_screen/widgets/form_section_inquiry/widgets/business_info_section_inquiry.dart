@@ -5,14 +5,19 @@ class BusinessInfoSection extends StatelessWidget {
   final TextEditingController contactCtrl;
   final TextEditingController phoneCtrl;
   final TextEditingController emailCtrl;
+  final String? businessNameError;
+  final String? phoneError;
+
+
 
   const BusinessInfoSection({
     super.key,
     required this.businessCtrl,
     required this.contactCtrl,
     required this.phoneCtrl,
-    required this.emailCtrl,
+    required this.emailCtrl, this.businessNameError,this.phoneError,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,7 @@ class BusinessInfoSection extends StatelessWidget {
               child: _InputField(
                 controller: businessCtrl,
                 hint: "Business / Brand Name*",
+                errorText: businessNameError,
                 suffixIcon: const Icon(Icons.business_center_rounded, color: Colors.grey),
                 validator: (v) =>
                 v == null || v.trim().isEmpty ? "Required" : null,
@@ -58,6 +64,7 @@ class BusinessInfoSection extends StatelessWidget {
               child: _InputField(
                 controller: phoneCtrl,
                 hint: "Mobile Number*",
+                errorText: phoneError,
                 keyboardType: TextInputType.phone,
                 suffixIcon: const Icon(Icons.local_phone_rounded, color: Colors.grey),
                 validator: (v) {
@@ -99,6 +106,9 @@ class _InputField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final String? errorText;
+
+
 
   const _InputField({
     required this.hint,
@@ -106,6 +116,7 @@ class _InputField extends StatelessWidget {
     this.controller,
     this.validator,
     this.keyboardType,
+    this.errorText,
   });
 
   @override
@@ -115,15 +126,33 @@ class _InputField extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       decoration: InputDecoration(
+        errorText: errorText,
+        errorStyle: const TextStyle(
+          fontSize: 12,
+          color: Colors.red,
+        ),
         hintText: hint,
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: const Color(0xFFF8FAFC),
+        fillColor: Colors.white,
+        // fillColor: const Color(0xFFF8FAFC),
         contentPadding:
         const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: Colors.green),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: Color(0xFFE2E6EF)),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: Colors.redAccent),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: Colors.redAccent, width: 1.5),
         ),
       ),
     );
