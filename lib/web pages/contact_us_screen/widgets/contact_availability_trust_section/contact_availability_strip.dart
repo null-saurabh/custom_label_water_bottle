@@ -115,7 +115,7 @@ class _TrustItem extends StatelessWidget {
         Icon(
           icon,
           size: 18,
-          color: DT.heading,
+          color: Colors.blue,
         ),
         const SizedBox(width: 8),
         Text(

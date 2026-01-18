@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 
 
 class SiteHeader extends StatelessWidget {
-  const SiteHeader({super.key});
+  final Color? bgColor;
+  const SiteHeader({super.key, this.bgColor});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ class SiteHeader extends StatelessWidget {
       height: 72,
       padding: const EdgeInsets.symmetric(horizontal: 48),
       decoration: BoxDecoration(
-        gradient: DT.heroGradient,
-        // color: Colors.white.withOpacity(0.96),
+        gradient: bgColor == null ? DT.heroGradient : null,
+        color: bgColor,
         border: Border(bottom: BorderSide(color: DT.border)),
       ),
       child: Row(
@@ -74,9 +75,21 @@ class SiteHeader extends StatelessWidget {
           },),
           const Spacer(),
 
-          PremiumButton(text: 'Request Bulk Order', onTap: () {
+          bgColor == null
+          ?PremiumButton(text: 'Request Bulk Order', onTap: () {
             context.go('/inquiry');
-          }),
+          })
+          : Row(
+            children: [
+              Icon(Icons.facebook,color: Colors.grey,size: 28,),
+              SizedBox(width: 8,),
+              Image.asset('assets/icons/instagram_2.png',color: Colors.grey,
+                height: 28,),
+              SizedBox(width: 4,),
+              Image.asset('assets/icons/twitter.png',color: Colors.grey,
+                height: 32,),
+            ],
+          ),
         ],
       ),
     );

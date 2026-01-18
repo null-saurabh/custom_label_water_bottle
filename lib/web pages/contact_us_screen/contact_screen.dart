@@ -2,7 +2,6 @@ import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_avail
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_left/contact_hero_left.dart';
 import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/contact_hero_right.dart';
 import 'package:flutter/material.dart';
-
 import '../../widgets/site_header.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -48,7 +47,22 @@ class ContactScreen extends StatelessWidget {
 
             ContactAvailabilityStrip(),
 
-            SizedBox(height: 80),
+            SiteHeader(bgColor: Colors.white,),
+
+            SizedBox(height: 20),
+
+            Row(
+              children: [
+                SizedBox(width: 48,),
+                Icon(Icons.copyright_outlined,color: Colors.grey,size: 20,),
+                SizedBox(width: 4,),
+                Text("2024 Custom Label Water Bottles. All rights reserved.",style: TextStyle(color: Colors.grey,fontSize: 14),),
+              ],
+            ),
+
+            SizedBox(height: 40),
+
+
           ],
         ),
       ),
