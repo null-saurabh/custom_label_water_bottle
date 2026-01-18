@@ -1,12 +1,15 @@
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/bottle_size_inquiry.dart';
-import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_info_section_inquiry.dart' show BusinessInfoSection;
-import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_type_chips_inquiry.dart' show BusinessTypeChips;
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_info_section_inquiry.dart'
+    show BusinessInfoSection;
+import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/business_type_chips_inquiry.dart'
+    show BusinessTypeChips;
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/delivery_into_inquiry.dart';
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/montly_quantity_inquiry.dart';
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inquiry/widgets/trust_footer_inquiry.dart';
 import 'package:cwbl_website/widgets/premium_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/responsive.dart';
 import '../../../../core/theme/design_token.dart' show DT;
 import '../../../../models/enquiry_form_model.dart';
 import '../../../../services/enquiry_service.dart';
@@ -19,7 +22,6 @@ class EnquiryFormSection extends StatefulWidget {
 }
 
 class _EnquiryFormSectionState extends State<EnquiryFormSection> {
-
   final EnquiryFormDataModel formData = EnquiryFormDataModel();
 
   final _businessCtrl = TextEditingController();
@@ -33,14 +35,12 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
   String? monthlyQtyError;
   String? bottleSizeError;
 
-
   final TextEditingController cityController = TextEditingController();
   final TextEditingController stateController = TextEditingController();
   final TextEditingController deliveryController = TextEditingController();
   final TextEditingController notesController = TextEditingController();
 
   bool _isSubmitting = false;
-
 
   Future<void> _handleSubmit() async {
     // print("In Submit A");
@@ -62,12 +62,12 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
     // print("Pressed Submit dd");
 
     try {
-//       print("Pressed Submit d");
-// print(formData.businessName);
-// print(formData.bottleSizes);
-// print(formData.businessType);
+      //       print("Pressed Submit d");
+      // print(formData.businessName);
+      // print(formData.bottleSizes);
+      // print(formData.businessType);
       await EnquiryService.submitEnquiry(formData);
-//       print("Pressed Submit e");
+      //       print("Pressed Submit e");
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Enquiry submitted successfully')),
@@ -75,7 +75,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
 
       // Optional: reset form or navigate
       // context.go('/thank-you');
-
     } catch (e) {
       // print(e);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -98,14 +97,16 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
     formData.notes = notesController.text.trim();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 1100),
       child: Container(
         // margin: const EdgeInsets.symmetric(vertical: 60),
-        padding: const EdgeInsets.all(40),
+        padding: EdgeInsets.symmetric(
+          horizontal: Responsive.isMobile(context) ? 16 : 40,
+          vertical: 40,
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(24),
@@ -122,11 +123,7 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
           children: [
             const _FormHeader(),
             const SizedBox(height: 16),
-            const Divider(
-              color: DT.border,
-              thickness: 1,
-              height: 24,
-            ),
+            const Divider(color: DT.border, thickness: 1, height: 24),
             const SizedBox(height: 16),
 
             BusinessInfoSection(
@@ -166,7 +163,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               ],
             ),
 
-
             const SizedBox(height: 20),
 
             Column(
@@ -195,7 +191,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
                   ),
               ],
             ),
-
 
             SizedBox(height: 20),
 
@@ -226,7 +221,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               ],
             ),
 
-
             //
             SizedBox(height: 12),
 
@@ -235,30 +229,20 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
               stateController: stateController,
               deliveryController: deliveryController,
               notesController: notesController,
-
             ),
             const SizedBox(height: 12),
 
-            const Divider(
-              color: DT.border,
-              thickness: 1,
-              height: 24,
-            ),
+            const Divider(color: DT.border, thickness: 1, height: 24),
 
-            Center(child:_SubmitSection(_handleSubmit,_isSubmitting,)),
+            Center(child: _SubmitSection(_handleSubmit, _isSubmitting)),
 
-            const Divider(
-              color: DT.border,
-              thickness: 1,
-              height: 24,
-            ),
+            const Divider(color: DT.border, thickness: 1, height: 24),
             const TrustFooter(),
           ],
         ),
       ),
     );
   }
-
 
   // @override
   // void dispose() {
@@ -272,8 +256,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
   //   notesController.dispose();
   //   super.dispose();
   // }
-
-
 
   bool _validateForm(EnquiryFormDataModel data) {
     bool isValid = true;
@@ -293,7 +275,6 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
       if (data.phone.isEmpty) {
         phoneError = "Phone number is required";
         isValid = false;
-
       }
 
       if (data.phone.isEmpty) {
@@ -317,9 +298,7 @@ class _EnquiryFormSectionState extends State<EnquiryFormSection> {
 
     return isValid;
   }
-
 }
-
 
 class _FormHeader extends StatelessWidget {
   const _FormHeader();
@@ -340,11 +319,7 @@ class _FormHeader extends StatelessWidget {
         SizedBox(height: 8),
         Text(
           "Fill out the form below to get a quote for custom-labeled water bottles.\nWe’ll get back to you within 24 business hours.",
-          style: TextStyle(
-            fontSize: 16,
-            height: 1.6,
-            color: Color(0xFF5A6B85),
-          ),
+          style: TextStyle(fontSize: 16, height: 1.6, color: Color(0xFF5A6B85)),
         ),
       ],
     );
@@ -367,28 +342,45 @@ class _SubmitSection extends StatelessWidget {
           isLoading: isLoading,
         ),
         const SizedBox(height: 12),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.lock_outline,
-              size: 16,
-              color: Color(0xFF5A6B85),
-            ),
-            SizedBox(width: 6),
-            Text(
-              "We’ll contact you within 24 business hours. No spam. No obligation.",
-              style: TextStyle(
-                fontSize: 13,
-                color: Color(0xFF5A6B85),
+        Responsive.isMobile(context)
+            ? Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.lock_outline,
+                        size: 16,
+                        color: Color(0xFF5A6B85),
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        "We’ll contact you within 24 business hours.",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color(0xFF5A6B85),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "No spam. No obligation.",
+                    style: TextStyle(fontSize: 13, color: Color(0xFF5A6B85)),
+                  ),
+                ],
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(Icons.lock_outline, size: 16, color: Color(0xFF5A6B85)),
+                  SizedBox(width: 6),
+                  Text(
+                    "We’ll contact you within 24 business hours.No spam. No obligation.",
+                    style: TextStyle(fontSize: 13, color: Color(0xFF5A6B85)),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
       ],
     );
   }
 }
-
-

@@ -15,7 +15,6 @@ class BusinessTypeChips extends StatelessWidget {
     "Café",
     "Hotel / Resort",
     "Banquet Hall",
-    "Cloud Kitchen",
     "Other",
   ];
 
