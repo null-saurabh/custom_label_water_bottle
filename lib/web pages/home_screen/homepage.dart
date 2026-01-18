@@ -1,6 +1,6 @@
 import 'package:cwbl_website/web%20pages/home_screen/widgets/lifestyle_cta_section.dart';
 import 'package:flutter/material.dart';
-import 'widgets/site_header.dart';
+import '../../widgets/site_header.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/bottle_showcase.dart';
 import 'widgets/why_branded_section.dart';

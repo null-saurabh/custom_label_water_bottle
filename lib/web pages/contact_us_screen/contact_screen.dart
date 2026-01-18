@@ -1,0 +1,57 @@
+import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_left/contact_hero_left.dart';
+import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_hero_right/widgets/contact_illustration.dart';
+import 'package:cwbl_website/web%20pages/contact_us_screen/widgets/contact_trust_strip.dart';
+import 'package:flutter/material.dart';
+
+import '../../widgets/site_header.dart';
+
+class ContactScreen extends StatelessWidget {
+  const ContactScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // backgroundColor: const Color(0xFFF6FAFF),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SiteHeader(),
+
+
+            Container(
+              padding: const EdgeInsets.only(top: 60.0,bottom: 30),
+
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFF3F9FF),
+                    Color(0xFFEAF3FF),
+                  ],
+                ),
+              ),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: const Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
+                      Expanded(flex: 4, child: ContactLeft()),
+                      SizedBox(width: 60),
+                      Expanded(flex: 4, child: ContactIllustration()),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 80),
+
+            ContactTrustStrip(),
+
+            SizedBox(height: 80),
+          ],
+        ),
+      ),
+    );
+  }
+}

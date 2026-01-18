@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/theme/design_token.dart';
+
 class BusinessInfoSection extends StatelessWidget {
   final TextEditingController businessCtrl;
   final TextEditingController contactCtrl;
@@ -140,7 +142,7 @@ class _InputField extends StatelessWidget {
         const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: Colors.green),
+          borderSide: BorderSide(color: DT.border),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),

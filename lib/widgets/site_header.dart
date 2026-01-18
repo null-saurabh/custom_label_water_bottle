@@ -1,6 +1,6 @@
 import 'package:cwbl_website/core/theme/design_token.dart';
 import 'package:flutter/material.dart';
-import '../../../widgets/premium_button.dart';
+import 'premium_button.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -63,9 +63,15 @@ class SiteHeader extends StatelessWidget {
           NavItem(label:'Home',onTap: (){
             context.go('/'); // HOME ROUTE
           },),
-          NavItem(label:'Samples'),
-          NavItem(label:'Pricing'),
-          NavItem(label:'Contact'),
+          NavItem(label:'Samples',onTap: (){
+            context.go('/contact'); // HOME ROUTE
+          }),
+          NavItem(label:'Pricing',onTap: (){
+            context.go('/contact'); // HOME ROUTE
+          }),
+          NavItem(label:'Contact',onTap: (){
+            context.go('/contact'); // HOME ROUTE
+          },),
           const Spacer(),
 
           PremiumButton(text: 'Request Bulk Order', onTap: () {

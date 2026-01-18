@@ -2,7 +2,7 @@ import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/form_section_inq
 import 'package:cwbl_website/web%20pages/inquiry_screen/widgets/hero_section_inquiry.dart';
 import 'package:flutter/material.dart';
 
-import '../home_screen/widgets/site_header.dart';
+import '../../widgets/site_header.dart';
 
 class BulkEnquiryPage extends StatelessWidget {
   const BulkEnquiryPage({super.key});
