@@ -19,3 +19,5 @@ Potential Claude roles discussed: interpreting orders and preparing drafts, prod
 Keep the separate assistant, the Ink & Drink public site and CRM boundaries clear. Website Firebase project/site remains `custom-label-bottle`, collection `enquiries`; never touch separate CRM `custom-label-bottle-crm`. This checkpoint changes documentation only: no AI page, implementation, backend, CRM, merge or deployment.
 
 Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.
+
+Account-switch checkpoint: the AI blueprint now includes an executable phased runbook, checkpoints A–E, evidence/release gates and exact resume steps. Planning is complete; implementation is pending. Next: inspect existing state and review exact Phase 1 copy, then proceed only with owner-authorized implementation. Real assistant screenshots are optional, not a blocker.

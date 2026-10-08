@@ -11,3 +11,5 @@ Production merge/deploy requires owner's review decision. Only Hosting preview i
 Latest owner discussion and remaining steps: [owner-discussion-checkpoint.md](owner-discussion-checkpoint.md). The proposed separate AI assistant page is not built or approved for implementation.
 
 Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.
+
+Account-switch checkpoint: the AI blueprint now includes an executable phased runbook, checkpoints A–E, evidence/release gates and exact resume steps. Planning is complete; implementation is pending. Next: inspect existing state and review exact Phase 1 copy, then proceed only with owner-authorized implementation. Real assistant screenshots are optional, not a blocker.
