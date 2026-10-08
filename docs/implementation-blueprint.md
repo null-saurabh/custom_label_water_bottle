@@ -1,0 +1,10 @@
+> Historical migration record. The owner subsequently authorized a professional Ink & Drink redesign. Current scope and facts: [professional-site-workflow.md](professional-site-workflow.md). Current review: [ink-drink-review.md](ink-drink-review.md). Earlier placeholder-preservation and exact-parity requirements are superseded.
+
+# Full HTML implementation blueprint — 2026-10-08
+
+1. Serve Home, Contact and Inquiry as real HTML/CSS. Replace the Contact iframe and Flutter Inquiry view with semantic forms and original assets/copy. Retain the Dart source as the parity reference; Admin stays removed. No new backend.
+2. Use a small browser form controller with separate pure validation/payload functions and an injected submission adapter. Production adapter uses the official Firebase client SDK, project custom-label-bottle, collection enquiries, original fields and server timestamp. Match trim/validation, optional fields, selection values (including original `5x00 packs`), success/failure copy, contact reset and inquiry retention.
+3. Preserve clean and old hash links, redirects for retired Admin/internal form paths, canonical metadata and original contact/map details. Retire only the old Flutter worker/caches. Build only static pages/assets and bundled JS, without Flutter runtime.
+4. Run pure behavior/schema tests and DOM controller tests with fake adapters (no network). A loopback-only mock preview serves the same controller with a local adapter; no mock switch ships to Hosting. Valid submission tests never hit production.
+5. Check raw HTML, visible forms with page scripts blocked/disabled, all linked assets, HTTP/metadata/robots, responsive overflow and navigation. Compare all three pages against production at desktop/mobile/320px/tablet and save screenshots. Distinguish browser capability limits from passes.
+6. Commit checkpoints. Deploy only Firebase preview after checks, verify actual hosting behavior and record version/expiry. Update PR and verification report. Production review/approval, fresh rollback reference and Hosting-only release come last; no production deployment in this execution chat.

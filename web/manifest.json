@@ -1,11 +1,11 @@
 {
-    "name": "cwbl_website",
-    "short_name": "cwbl_website",
+    "name": "Custom Label Water Bottle",
+    "short_name": "Custom Label Bottle",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Custom-labeled drinking water bottles for restaurants, hotels, and food businesses.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
