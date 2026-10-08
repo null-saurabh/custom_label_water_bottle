@@ -17,3 +17,5 @@ Browser error/warning logs empty on normal local AI page. Resource checks includ
 Owner-reported frontend HUD, Hermes/custom skills, Gemini Live voice and MCP connections have not been independently inspected. Assistant/CRM repositories untouched. Optional product screenshots not required. Existing contact/address/WhatsApp preserved; inactive business email omitted; hours remain authorized assumption Mon–Sat 9 AM–6 PM IST, Sunday closed. Sample artwork permissions remain a prior review item.
 
 Next D: build committed source; html-review-only deploy; exact hosted file hashes/route/meta/assets/404; fresh desktop/mobile website screenshots; current PR/handoff. Then owner review. No live merge/deploy, rules/Storage/database changes. Live baseline from supported channel listing remains version `1d3468f820f8ce2c`, release `1768839261178000`; verify unchanged after preview.
+
+Pre-release contrast review found concept-caption text at 4.44:1 on its darkest pale background; darkened it before final deployment. This is a visual QA correction, with no behaviour/schema changes.
