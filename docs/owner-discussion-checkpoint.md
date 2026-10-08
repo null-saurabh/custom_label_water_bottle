@@ -17,3 +17,5 @@ Potential Claude roles discussed: interpreting orders and preparing drafts, prod
 3. Separately agree the assistant's public name, page scope, homepage introduction/header link and accurate public claims before any AI-page implementation. Inspect the assistant project before claiming feature completion.
 
 Keep the separate assistant, the Ink & Drink public site and CRM boundaries clear. Website Firebase project/site remains `custom-label-bottle`, collection `enquiries`; never touch separate CRM `custom-label-bottle-crm`. This checkpoint changes documentation only: no AI page, implementation, backend, CRM, merge or deployment.
+
+Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.

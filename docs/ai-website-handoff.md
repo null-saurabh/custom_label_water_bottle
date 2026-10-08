@@ -9,3 +9,5 @@ Preview channel `html-review` has the real production adapter: only invalid subm
 Production merge/deploy requires owner's review decision. Only Hosting preview is authorized now. Revalidate live release rollback before any approved production release; Git revert alone does not roll back Hosting.
 
 Latest owner discussion and remaining steps: [owner-discussion-checkpoint.md](owner-discussion-checkpoint.md). The proposed separate AI assistant page is not built or approved for implementation.
+
+Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.
