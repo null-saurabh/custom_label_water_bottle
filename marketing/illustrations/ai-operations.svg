@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+<title id="title">AI operations concept illustration</title><desc id="desc">A central AI symbol connects a request document, a schedule, an operations box and a human review check. This represents a planned concept.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#142f46"/><stop offset="1" stop-color="#254e68"/></linearGradient><linearGradient id="core" x2="1" y2="1"><stop stop-color="#a3e6f5"/><stop offset="1" stop-color="#75accf"/></linearGradient><radialGradient id="halo"><stop stop-color="#88d8ed" stop-opacity=".22"/><stop offset="1" stop-color="#88d8ed" stop-opacity="0"/></radialGradient><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#c3e4f2" opacity=".13"/></pattern></defs>
+<rect width="640" height="480" rx="24" fill="url(#bg)"/><rect width="640" height="480" rx="24" fill="url(#dots)"/><circle cx="320" cy="240" r="205" fill="url(#halo)"/>
+<g fill="none" stroke="#b7deed"><circle cx="320" cy="240" r="120" opacity=".25"/><circle cx="320" cy="240" r="165" stroke-dasharray="3 9" opacity=".2"/><path d="M180 130Q250 140 320 240M460 130Q390 140 320 240M180 350Q250 340 320 240M460 350Q390 340 320 240" opacity=".5" stroke-width="2"/></g>
+<g fill="#a6dcea"><circle cx="235" cy="155" r="4"/><circle cx="405" cy="155" r="4"/><circle cx="235" cy="325" r="4"/><circle cx="405" cy="325" r="4"/></g>
+<circle cx="320" cy="240" r="77" fill="#0d273b" stroke="#4f829f"/><circle cx="320" cy="240" r="61" fill="url(#core)"/><text x="320" y="253" fill="#173c54" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="700">AI</text>
+<g fill="#f5fbff" stroke="#b9d7e5"><rect x="110" y="78" width="140" height="106" rx="18"/><rect x="390" y="78" width="140" height="106" rx="18"/><rect x="110" y="296" width="140" height="106" rx="18"/><rect x="390" y="296" width="140" height="106" rx="18"/></g>
+<g fill="none" stroke="#325f7c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M164 99h23l11 11v47h-34zM187 99v12h11M174 123h14M174 133h14M174 143h9"/>
+<rect x="436" y="108" width="49" height="44" rx="5"/><path d="M436 120h49M448 102v11M473 102v11M446 132h6M460 132h6M474 132h3M446 142h6M460 142h6"/>
+<path d="m153 334 27-14 27 14v31l-27 14-27-14zM153 334l27 14 27-14M180 348v31M168 327l27 14"/>
+<circle cx="460" cy="326" r="9"/><path d="M440 368v-12a20 20 0 0 1 40 0v12"/>
+</g><circle cx="479" cy="362" r="15" fill="#d8edf3" stroke="#6ba2b3"/><path d="m472 362 5 5 9-10" fill="none" stroke="#28556a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
