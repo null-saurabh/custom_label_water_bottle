@@ -36,7 +36,7 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header('Location', '/contact#message-form')
             self.end_headers()
             return
-        if path in ['/contact', '/inquiry']:
+        if path in ['/contact', '/inquiry', '/ai-assistant']:
             self.path = path + '.html'
         return super().do_GET()
 

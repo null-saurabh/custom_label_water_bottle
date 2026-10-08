@@ -18,7 +18,7 @@ class Document(HTMLParser):
     def handle_starttag(self, tag, attrs):
         self.nodes.append((tag, dict(attrs)))
 
-for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquiry')]:
+for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquiry'),('ai-assistant','/ai-assistant')]:
     source = (SITE / f'{name}.html').read_text()
     doc = Document(source)
     assert '<!-- PAGE_' not in source, name
@@ -48,7 +48,7 @@ for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquir
         assert not any(t == 'style' and 'display:none' in str(a) for t,a in doc.nodes)
 assert not (SITE/'main.dart.js').exists()
 
-for name in ['index','contact','inquiry','404']:
+for name in ['index','contact','inquiry','ai-assistant','404']:
     source = (SITE / f'{name}.html').read_text()
     for forbidden in ['support@yourwater.com','8112552320','Business Complex','query=Patna','Quality Certified','Hospitality Trusted','Trusted by','24 business hours','5x00','2024']:
         assert forbidden not in source, (name,forbidden)
@@ -79,3 +79,11 @@ assert 'Disallow: /\n' not in (SITE/'robots.txt').read_text()
 for font in re.findall(r'url\((/fonts/[^)]+)\)',(SITE/'fonts/fonts.css').read_text()):
     assert (SITE/font.lstrip('/')).is_file(), font
 print('PASS: semantic pages, metadata, links/assets, no placeholders/unsupported claims, retained backend schema, removed Admin and Hosting-only scope')
+
+assistant=(SITE/'ai-assistant.html').read_text()
+for text in ['Prototype in development','Planned workflow — not yet integrated','Owner-reported','Human review','Human approval','Planned Claude evaluation','not currently in place','future internal pilot']:
+    assert text in assistant, text
+assert 'Jarvis' not in assistant and '<form' not in assistant
+assert 'https://sauravcloud.online/ai-assistant' in (SITE/'sitemap.xml').read_text()
+for name in ['index','contact','inquiry','ai-assistant','404']:
+    assert (SITE/f'{name}.html').read_text().count('href="/ai-assistant"') >= 2, name

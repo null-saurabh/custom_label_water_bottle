@@ -18,4 +18,4 @@ await build({
 });
 await cp('marketing/service-worker-retirement.js', `${output}/flutter_service_worker.js`);
 await rm(`${output}/service-worker-retirement.js`);
-console.log('Built three HTML pages in build/site; no Flutter runtime or iframe.');
+console.log('Built four public HTML pages in build/site; no Flutter runtime or iframe.');
