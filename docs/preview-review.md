@@ -1,3 +1,5 @@
+> Historical migration record. The owner subsequently authorized a professional Ink & Drink redesign. Current scope and facts: [professional-site-workflow.md](professional-site-workflow.md). Current review: [ink-drink-review.md](ink-drink-review.md). Earlier placeholder-preservation and exact-parity requirements are superseded.
+
 # Custom Label Water Bottles — preview review
 
 Prepared 9 October 2026 (IST). Ready for owner preview review; production remains unchanged.

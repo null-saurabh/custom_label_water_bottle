@@ -1,3 +1,5 @@
+> Historical migration record. The owner subsequently authorized a professional Ink & Drink redesign. Current scope and facts: [professional-site-workflow.md](professional-site-workflow.md). Current review: [ink-drink-review.md](ink-drink-review.md). Earlier placeholder-preservation and exact-parity requirements are superseded.
+
 > Historical checkpoint. Current work resumed with owner authorization; see [current checkpoint](migration-checkpoint.md). Earlier pause/remaining-work statements below describe the previous session.
 
 # Full HTML recovery checkpoint — 2026-10-08

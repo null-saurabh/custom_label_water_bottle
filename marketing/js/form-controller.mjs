@@ -41,6 +41,7 @@ export function bindForm(form, submitEnquiry) {
     const errors = validate(payload, kind);
     showErrors(errors);
     status.textContent = '';
+    status.removeAttribute('data-outcome');
     if (Object.keys(errors).length) {
       if (kind === 'inquiry') status.textContent = 'Please fill all required fields';
       form.querySelector('[aria-invalid="true"]')?.focus();
@@ -54,8 +55,10 @@ export function bindForm(form, submitEnquiry) {
       await submitEnquiry(payload);
       if (kind === 'contact') form.reset();
       status.textContent = messages[kind].success;
+      status.dataset.outcome = 'success';
     } catch {
       status.textContent = messages[kind].failure;
+      status.dataset.outcome = 'error';
     } finally {
       pending = false;
       button.disabled = false;

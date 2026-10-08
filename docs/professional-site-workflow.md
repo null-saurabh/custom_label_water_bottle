@@ -8,8 +8,9 @@ Owner's new instruction supersedes exact visual parity and placeholder retention
 4. Build, run meaningful tests/static/link checks, inspect all pages at 320/390/768/1280 widths, keyboard/validation/navigation and actual CSP-script-blocked rendering. Capture review evidence and fix found defects.
 5. Save/push recoverable commits, deploy Hosting preview only, verify hosted bytes/routes/assets and browser presentation; update PR/report and current handoff. Production merge/deploy remains pending owner review.
 
-## Facts requiring owner confirmation
 
-Real public business/trading name; usable email and phone; whether WhatsApp is supported and its verified destination; address or service area; public hours. Additional facts: whether sample artwork may be shown publicly as label concepts, any actual certification details, quantities per pack/minimum order and available sizes/coverage/lead times. No claims about these will be added without confirmation. There is no confirmed privacy policy/legal entity; do not invent one or add an inactive policy link.
+## Confirmed business details and assumptions
 
-Until answers arrive, keep descriptive product branding and forms, omit unconfirmed direct contact details and factual promises, and present samples as design examples rather than customer endorsements.
+Ink & Drink; +91 8597788095 for phone and WhatsApp; IGIMS Gate No. 2, Raja Bazar, Sheikhpura, Patna, Bihar 800014, India. Email support@sauravcloud.online is not active and is omitted from public pages. Public hours use the authorized assumption Monday–Saturday, 9 AM–6 PM IST; Sunday closed. The I&D text monogram is a design treatment, not a supplied official logo.
+
+Samples are design examples, not endorsements. Artwork permission, actual certifications, pack contents/MOQ, available stock sizes, delivery coverage and lead times remain unconfirmed. No claims about these are published. Label designs is a real homepage gallery anchor, not a separate page.

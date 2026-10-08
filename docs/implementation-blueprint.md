@@ -1,3 +1,5 @@
+> Historical migration record. The owner subsequently authorized a professional Ink & Drink redesign. Current scope and facts: [professional-site-workflow.md](professional-site-workflow.md). Current review: [ink-drink-review.md](ink-drink-review.md). Earlier placeholder-preservation and exact-parity requirements are superseded.
+
 # Full HTML implementation blueprint — 2026-10-08
 
 1. Serve Home, Contact and Inquiry as real HTML/CSS. Replace the Contact iframe and Flutter Inquiry view with semantic forms and original assets/copy. Retain the Dart source as the parity reference; Admin stays removed. No new backend.

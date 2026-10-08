@@ -6,17 +6,17 @@ import { build } from 'esbuild';
 import { createPayload, validate, QUANTITIES, BOTTLE_SIZES, BUSINESS_TYPES, COLLECTION } from '../marketing/js/form-domain.mjs';
 import { bindForm } from '../marketing/js/form-controller.mjs';
 
-const fixture = { businessName:'  Fixture brand ', contactName:' Fixture person ', phone:' 9000000000 ', email:' optional ', businessType:'', monthlyQuantity:'5x00 packs', bottleSizes:['1 L','250 ml'], city:' City ', state:' State ', deliveryLocation:' Location ', notes:' Notes ' };
+const fixture = { businessName:'  Fixture brand ', contactName:' Fixture person ', phone:' 9000000000 ', email:' fixture@example.com ', businessType:'', monthlyQuantity:'500 packs', bottleSizes:['1 L','250 ml'], city:' City ', state:' State ', deliveryLocation:' Location ', notes:' Notes ' };
 
-test('inquiry contract matches the original Dart schema, trim and optional fields',()=>{
+test('inquiry retains backend schema, trimming and optional fields with corrected quantity',()=>{
  const payload=createPayload(fixture,'inquiry');
- assert.deepEqual(payload,{businessName:'Fixture brand',contactName:'Fixture person',phone:'9000000000',email:'optional',businessType:'',monthlyQuantity:'5x00 packs',bottleSizes:['1 L','250 ml'],city:'City',state:'State',deliveryLocation:'Location',notes:'Notes',status:'new'});
+ assert.deepEqual(payload,{businessName:'Fixture brand',contactName:'Fixture person',phone:'9000000000',email:'fixture@example.com',businessType:'',monthlyQuantity:'500 packs',bottleSizes:['1 L','250 ml'],city:'City',state:'State',deliveryLocation:'Location',notes:'Notes',status:'new'});
  assert.deepEqual(validate(payload,'inquiry'),{});
  assert.equal(COLLECTION,'enquiries');
 });
 test('contact uses businessName and resets unrelated fields, preserving original validation',()=>{
  const payload=createPayload({...fixture,name:' Person ',message:' Hello '},'contact');
- assert.deepEqual(payload,{businessName:'Person',contactName:'',phone:'9000000000',email:'optional',businessType:'',monthlyQuantity:'',bottleSizes:[],city:'',state:'',deliveryLocation:'',notes:'Hello',status:'new'});
+ assert.deepEqual(payload,{businessName:'Person',contactName:'',phone:'9000000000',email:'fixture@example.com',businessType:'',monthlyQuantity:'',bottleSizes:[],city:'',state:'',deliveryLocation:'',notes:'Hello',status:'new'});
  assert.deepEqual(validate(payload,'contact'),{});
  assert.equal(validate({...payload,phone:'123'},'contact').phone,'Enter a valid 10-digit number');
 });
@@ -38,7 +38,7 @@ for(const kind of ['contact','inquiry']) test(`${kind}: real DOM invalid, pendin
   form.dispatchEvent(new Event('submit',{cancelable:true}));
   assert.equal(calls.length,0);
   assert.equal(form.querySelector('[name=phone]').getAttribute('aria-invalid'),'true');
-  const values=kind==='contact'?{name:' Person ',phone:'9000000000',email:'optional',message:' Hello '}:fixture;
+  const values=kind==='contact'?{name:' Person ',phone:'9000000000',email:'fixture@example.com',message:' Hello '}:fixture;
   for(const [key,value]of Object.entries(values)){
    if(key==='bottleSizes'){for(const field of form.querySelectorAll('[name=bottleSizes]'))field.checked=value.includes(field.value);}
    else if(key==='businessType')continue;
@@ -59,13 +59,13 @@ for(const kind of ['contact','inquiry']) test(`${kind}: real DOM invalid, pendin
   dispose();
  }finally{globalThis.FormData=previous;dom.window.close();}
 });
-test('HTML option values match source contracts; labels stay in initial markup',async()=>{
+test('corrected HTML option values and visible field labels stay in initial markup',async()=>{
  const dom=new JSDOM(await readFile(new URL('../marketing/inquiry.html',import.meta.url),'utf8'));
  const doc=dom.window.document;
  assert.deepEqual([...doc.querySelectorAll('[name=businessType]')].map(x=>x.value),BUSINESS_TYPES);
  assert.deepEqual([...doc.querySelectorAll('[name=monthlyQuantity] option')].map(x=>x.value).filter(Boolean),QUANTITIES);
  assert.deepEqual([...doc.querySelectorAll('[name=bottleSizes]')].map(x=>x.value),BOTTLE_SIZES);
- for(const field of doc.querySelectorAll('input,textarea,select'))assert.ok(field.getAttribute('aria-label')||field.closest('label'));
+ for(const field of doc.querySelectorAll('input,textarea,select'))assert.ok(field.getAttribute('aria-label')||field.closest('label')||doc.querySelector(`label[for="${field.id}"]`));
  dom.window.close();
 });
 test('production adapter adds a server timestamp and cannot switch project or collection',async()=>{
@@ -107,4 +107,13 @@ test('real production adapter calls Firebase addDoc with original target, payloa
  assert.equal(saved.ref.db.app.config.projectId,'custom-label-bottle');
  assert.equal(saved.ref.path,'enquiries');
  assert.deepEqual(saved.data,{...payload,createdAt:{fixtureServerTimestamp:true}});
+});
+
+test('optional email stays optional; supplied invalid addresses are rejected',()=>{
+ for(const kind of ['contact','inquiry']){
+  const payload=createPayload({...fixture,name:'Fixture'},kind);
+  assert.equal(validate({...payload,email:''},kind).email,undefined);
+  assert.equal(validate({...payload,email:'name at example'},kind).email,'Enter a valid email address');
+  assert.equal(validate({...payload,email:'hello@example.com'},kind).email,undefined);
+ }
 });

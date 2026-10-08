@@ -1,3 +1,5 @@
+> Historical migration record. The owner subsequently authorized a professional Ink & Drink redesign. Current scope and facts: [professional-site-workflow.md](professional-site-workflow.md). Current review: [ink-drink-review.md](ink-drink-review.md). Earlier placeholder-preservation and exact-parity requirements are superseded.
+
 # Full HTML review checkpoint — 2026-10-09 (India time)
 
 The former hybrid/iframe checkpoint is superseded. All three public pages and both forms are now real HTML/CSS. No Flutter runtime or iframe ships in the static build. Existing branch `codex/ai-readable-html`, PR #1 against `master`.

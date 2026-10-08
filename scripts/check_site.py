@@ -48,9 +48,20 @@ for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquir
         assert not any(t == 'style' and 'display:none' in str(a) for t,a in doc.nodes)
 assert not (SITE/'main.dart.js').exists()
 
-contact = (SITE / 'contact.html').read_text()
-for value in ['+91 8112552320','tel:+918112552320','support@yourwater.com','mailto:support@yourwater.com','123, Business Complex, Bengaluru, India','query=Patna%2C%20India','2024 Custom Label Water Bottles. All rights reserved.']:
-    assert value in contact,value
+for name in ['index','contact','inquiry','404']:
+    source = (SITE / f'{name}.html').read_text()
+    for forbidden in ['support@yourwater.com','8112552320','Business Complex','query=Patna','Quality Certified','Hospitality Trusted','Trusted by','24 business hours','5x00','2024']:
+        assert forbidden not in source, (name,forbidden)
+    assert 'href="/#samples"' in source, name
+    assert 'aria-label="Footer navigation"' in source, name
+    assert 'Ink &amp; Drink' in source, name
+    assert 'tel:+918597788095' in source, name
+    assert 'https://wa.me/918597788095' in source, name
+    assert 'support@sauravcloud.online' not in source, name
+
+contact=(SITE/'contact.html').read_text()
+for value in ['IGIMS Gate No. 2, Raja Bazar, Sheikhpura','Patna, Bihar 800014, India','Monday–Saturday: 9 AM–6 PM IST','Sunday: closed','IGIMS%20Gate%20No.%202']:
+    assert value in contact, value
 
 # Keep Dart reference implementations unchanged; JS behavior/schema parity is tested in html-forms.test.mjs.
 for path in ['lib/models/enquiry_form_model.dart','lib/services/enquiry_service.dart','lib/web pages/contact_us_screen/widgets/contact_hero_left/widgets/contact_form_card.dart']:
@@ -67,4 +78,4 @@ assert any(r['source']=='/admin' and r['destination']=='/' for r in config['host
 assert 'Disallow: /\n' not in (SITE/'robots.txt').read_text()
 for font in re.findall(r'url\((/fonts/[^)]+)\)',(SITE/'fonts/fonts.css').read_text()):
     assert (SITE/font.lstrip('/')).is_file(), font
-print('PASS: semantic pages, metadata, links/assets, exact contact details, unchanged forms/schema, removed Admin and Hosting-only scope')
+print('PASS: semantic pages, metadata, links/assets, no placeholders/unsupported claims, retained backend schema, removed Admin and Hosting-only scope')
