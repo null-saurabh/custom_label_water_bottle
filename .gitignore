@@ -26,3 +26,9 @@ ios/Runner.xcworkspace
 
 # Misc
 .DS_Store
+
+# Local build configuration, preview state and scratch files
+work/
+.firebase/
+firebase-debug.log*
+lib/firebase_options.dart

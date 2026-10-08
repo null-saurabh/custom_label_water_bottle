@@ -1,44 +1,30 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-    The path provided below has to start and end with a slash "/" in order
-    for it to work correctly.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Custom-labeled drinking water bottles for restaurants, hotels, and food businesses. Personalize each label with your business name, logo, address, and contact details.">
-  <meta name="theme-color" content="#0175C2">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Custom Label Water Bottle">
-  <meta property="og:description" content="Custom-labeled drinking water bottles for restaurants, hotels, and food businesses. Personalize each label with your business name, logo, address, and contact details.">
-  <meta property="og:url" content="https://sauravcloud.online/">
-  <link rel="canonical" href="https://sauravcloud.online/">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Custom Label Water Bottle">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <title>Custom Label Water Bottle | Custom-Labeled Drinking Water</title>
-  <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><!-- PAGE_TITLE --> | Custom Label Water Bottles</title>
+  <meta name="description" content="<!-- PAGE_DESCRIPTION -->">
+  <link rel="canonical" href="https://sauravcloud.online<!-- PAGE_PATH -->">
+  <meta name="theme-color" content="#3558c9">
+  <!-- PAGE_ROBOTS -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/site.css">
+  <script src="/site.js" defer></script>
 </head>
 <body>
-  <noscript>
-    <main>
-      <h1>Custom-labeled drinking water bottles for businesses</h1>
-      <p>Custom Label Water Bottle supplies drinking water bottles with labels personalized for each customer. Labels can include a business name, logo, address, and contact details.</p>
-      <p>Restaurants can place the branded bottles on their tables and serve them to guests. The website also serves hotels and food businesses looking for custom-labeled bottles.</p>
-      <p>Customers can ask about orders through the website inquiry form, WhatsApp, or by phone.</p>
-    </main>
-  </noscript>
-  <script src="flutter_bootstrap.js" async></script>
+  <main class="app-fallback" id="app-fallback">
+    <!-- PAGE_CONTENT -->
+    <p>The form needs JavaScript. If it doesn’t load, <a href="tel:+918112552320">call +91 8112552320</a>
+      or <a href="mailto:support@yourwater.com">email support@yourwater.com</a>.</p>
+    <a class="button" href="/">Home</a> <a class="button secondary" href="/contact">Contact</a>
+  </main>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      document.documentElement.classList.add('flutter-ready');
+    });
+  </script>
+  <script src="/flutter_bootstrap.js" async></script>
 </body>
 </html>
