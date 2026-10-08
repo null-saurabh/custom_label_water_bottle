@@ -21,3 +21,5 @@ Native semantic HTML cards/ordered workflow, one decorative person/approval SVG,
 ## Sequential verification/checkpoints
 
 B: functional content/routes/build plus this architecture; build/tests/static/link checks, meaningful commit/normal push. C: browser responsive/accessibility/script-blocked, truthful copy/loaded assets/source/console and safe form regressions; fix defects, commit/push evidence. D: build exact committed source, html-review-only preview, hosted bytes/routes/metadata/404, fresh screenshots, review report/current handoff/PR, commit/push. E: later explicit owner-approved production release and public verification. Detailed matrix and recovery references: [blueprint](ai-assistant-blueprint.md).
+
+Public copy refinement: use concise first-party site wording for owner-supplied prototype progress, with a clear development stage. Attribution/unverified status stays in the review report; business flow/pilot/Claude remain planned. Owner-reported factual inventory is unchanged. This routine editorial refinement removes repetitive internal verification wording from customer-facing copy.

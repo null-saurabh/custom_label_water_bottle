@@ -81,7 +81,7 @@ for font in re.findall(r'url\((/fonts/[^)]+)\)',(SITE/'fonts/fonts.css').read_te
 print('PASS: semantic pages, metadata, links/assets, no placeholders/unsupported claims, retained backend schema, removed Admin and Hosting-only scope')
 
 assistant=(SITE/'ai-assistant.html').read_text()
-for text in ['Prototype in development','Planned workflow — not yet integrated','Owner-reported','Human review','Human approval','Planned Claude evaluation','not currently in place','future internal pilot']:
+for text in ['Prototype in development','Planned workflow — not yet integrated','Current prototype','Human review','Human approval','Planned Claude evaluation','not currently in place','intended first internal pilot']:
     assert text in assistant, text
 assert 'Jarvis' not in assistant and '<form' not in assistant
 assert 'https://sauravcloud.online/ai-assistant' in (SITE/'sitemap.xml').read_text()
