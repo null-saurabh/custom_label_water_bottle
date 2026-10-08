@@ -26,6 +26,20 @@ Website content only: no access to or changes in the separate assistant or CRM r
 
 Do not add fake screenshots, testimonials, customer logos, endorsements, metrics or UI demonstrations. A simple accessible HTML/SVG workflow with real text labels is appropriate; it depicts the planned process, not fabricated product UI. Screenshots can be considered only when the owner supplies real, safe prototype screenshots. Public screenshots must exclude credentials/customer data; requesting or receiving them does not grant access to other repositories.
 
+## Visual design, graphics and motion
+
+Use a restrained professional hero compatible with Ink & Drink's navy/blue palette, typography, generous spacing and rounded panels. Give the separate project its own clear title and prototype-status label rather than inventing a logo or corporate relationship. Pair concise copy with a labelled conceptual workflow illustration, not a simulated product dashboard. Keep the Contact/WhatsApp CTA clear and subordinate to the page's development status.
+
+Build the workflow directly in semantic HTML and, where helpful, sharp scalable SVG. Show draft stages and human approval gates distinctly with text labels; include “Conceptual illustration — planned workflow”. Keep an equivalent readable ordered text sequence, meaningful SVG title/description where necessary and accessible contrast. Desktop can use a horizontal sequence; mobile should stack it in reading order with no clipped arrows or reliance on colour alone. The diagram must remain understandable without animation or JavaScript.
+
+Give current owner-reported prototype progress and planned integration/pilot work distinct headings and explicit status text. Use clean cards or a simple roadmap to show current/next/later rather than a fabricated percentage bar or completion timeline. Graphics must not imply that planned business capabilities already work.
+
+Optional motion should support understanding: a brief restrained CSS/SVG transition or sequence emphasis can guide attention through the planned workflow. Avoid continuous animation, autoplay video, distracting GIF loops, flashing effects or motion that obscures approval gates. Honour `prefers-reduced-motion`, provide a fully static fallback and keep all labels/content visible before and without scripts. The page should feel polished while remaining fast and responsive.
+
+Use images, GIFs or other media only when they explain something the text/diagram cannot explain as well. There is no need to use every offered format; prefer lightweight scalable diagrams and restrained motion. Real prototype screenshots must be supplied from the actual assistant project and have private information redacted before publication. They must carry an accurate prototype caption and cannot establish production readiness by themselves. Generated images, if useful, must be clearly conceptual illustrations, never fake product screenshots or purported evidence of working features. Apply the relevant imagegen skill/tool during later implementation only if artwork genuinely improves the page. No image generation or asset production is required for this planning checkpoint.
+
+Later visual acceptance: inspect hierarchy, status labels, diagram reading order/approval gates, image captions, media weight/loading and keyboard behaviour at all target widths. Verify reduced-motion and script-blocked/static views preserve the complete explanation. Prefer existing fonts and small local assets; avoid adding heavy animation libraries solely for decorative effects.
+
 ## Implementation and release workflow, after copy review
 
 1. Review exact page, homepage-introduction, navigation and CTA copy with the owner. Confirm accurate stage, separate-project relationship and human approval boundaries. Retain generic name if no final name is chosen. Approval of this blueprint alone does not equal approval to implement.
@@ -57,6 +71,8 @@ Do not add fake screenshots, testimonials, customer logos, endorsements, metrics
 - [ ] Roadmap distinguishes current/next/later without invented dates, percentages or universal claims.
 - [ ] CTAs reach real Contact/WhatsApp destinations; inactive email and unbuilt product actions absent.
 - [ ] No fake UI, screenshots, customer logos, testimonials, endorsements or metrics.
+- [ ] Professional hero and clearly labelled conceptual HTML/SVG workflow fit the existing visual style; current versus planned hierarchy is explicit.
+- [ ] Any motion is purposeful, restrained and honours reduced-motion/static fallbacks; media remains fast and accessible, with no autoplay distraction.
 - [ ] 320/390/768/1280px, keyboard and script-blocked checks pass; no clipped mobile header or workflow labels.
 - [ ] Build/static/route/link checks and safe existing-form tests pass; backend/schema/CRM unchanged.
 - [ ] Preview matches reviewed build and owner approves it; production remains untouched until release approval.
