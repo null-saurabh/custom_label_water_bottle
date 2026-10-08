@@ -18,4 +18,4 @@ Portable local plans/evidence: `/Users/saurav/Documents/Codex/2026-10-09/custom-
 
 ## Current next step
 
-Owner review of final preview at `/ai-assistant`, deployed build `19f998d`, version `da5cf4c61975b623`. Latest HEAD includes review docs beyond the deployed source checkpoint. See current handoff/review for evidence and limits. Live production unchanged; release only after explicit owner approval and refreshed rollback.
+Owner review of final preview at `/ai-assistant`, deployed build `715e887`, version `363a78faa165f857`. Latest HEAD includes review docs beyond the deployed source checkpoint. See current handoff/review for evidence and limits. Live production unchanged; release only after explicit owner approval and refreshed rollback.

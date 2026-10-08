@@ -1,5 +1,13 @@
 # AI assistant website review — 9 October 2026
 
+## Latest workflow balance — 9 October 2026
+
+Owner requested the previous Capture / Prepare / Review concept illustration in the middle or end of the page and allowed adjusting its steps. The middle workflow now uses the original pale-blue/navy style with four line-icon stages: Customer enquiry → Structured draft → Review before action → Keep work in view. Replaces the longer seven-card list with one clearer visual flow; the hero SVG remains. Descriptions cover requirements/open questions, proposed next steps, important decisions for human review, and progress/follow-up with changes flagged for attention. Detailed internal automation context remains private. Planned status retained; no integration claimed.
+
+Deployed source `715e887`; preview version `363a78faa165f857`; expires 16 October 2026 at 02:34:14 IST (15 October 21:04:14 UTC). Preview: https://custom-label-bottle--html-review-xew97p5g.web.app/ai-assistant#planned-workflow . Build, ten existing tests and static/legacy checks pass. Local and hosted AI checked at 1280/768/390/320px: four visible stages, no horizontal overflow, hero SVG loaded. Desktop connected row, tablet grid and phone vertical layout inspected; hero anchor navigates correctly. Script-blocked content retains all four stages. Hosted AI error/warning logs empty. Optional finite motion remains restricted to no-preference; reduced-motion fallback source verified only.
+
+All 48 public files byte-match the committed build; 15 route/status checks pass. Production release `1768839261178000` unchanged before/after, version `1d3468f820f8ce2c`. No form/backend/schema/config/dependency changes or real submissions. No merge/live release or assistant/CRM work. Evidence saved in current chat `outputs/ai-workflow-balance`. Subsequent commits are documentation only. Earlier reports below are historical; references to seven stages describe the prior version.
+
 ## Latest refinement — 9 October 2026
 
 Owner clarified that operational automation details were private context for improving the website presentation, not a request to implement the assistant or publish the full business process. Public Home and AI copy no longer repeats “separate project”; the relationship appears once in the roadmap as independent development and intended Ink & Drink pilot. Website integration follows completion and evaluation. Prototype/planned labels retained.
