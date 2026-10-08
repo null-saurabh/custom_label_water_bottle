@@ -17,3 +17,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}button:
 .inquiry-form input::placeholder{color:#3a4a66}.inquiry-form .input-wrap>input{padding-top:11px;padding-bottom:11px}.quantity-section select{font-family:Inter,Arial,sans-serif;font-size:14px;padding-top:13px;padding-bottom:13px}.size-options{font-size:14px}.inquiry-form input,.inquiry-form textarea{letter-spacing:.2px}
 
 .message-form .input-wrap>input{padding-top:11px;padding-bottom:11px}
+/* Preserve Flutter's explicit blue icon tint and tablet contact-card cap. */
+.benefit-icon img[src$="premium_perception.png"],.why .trust img:not([src$="hospitality.png"]){filter:brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(2128%) hue-rotate(183deg) brightness(101%) contrast(91%)}
+.inquiry-trust img{filter:brightness(0) saturate(100%) invert(43%) sepia(98%) saturate(2039%) hue-rotate(209deg) brightness(101%) contrast(101%)}
+@media(max-width:949px){.contact-cards{max-width:550px;margin-left:auto;margin-right:auto}.contact-card.wide{width:540px;max-width:100%;justify-self:center}}
