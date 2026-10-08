@@ -1,5 +1,17 @@
 # AI assistant website review — 9 October 2026
 
+## Latest refinement — 9 October 2026
+
+Owner clarified that operational automation details were private context for improving the website presentation, not a request to implement the assistant or publish the full business process. Public Home and AI copy no longer repeats “separate project”; the relationship appears once in the roadmap as independent development and intended Ink & Drink pilot. Website integration follows completion and evaluation. Prototype/planned labels retained.
+
+A custom, approximately 3 KB SVG illustration connects requests, schedules, operations and human review. Used in the AI hero and Home introduction, labelled as conceptual rather than a product screenshot. Crisp scalable icons; descriptive alt text and semantic text alongside the artwork. No GIF, new package or external asset dependency. AI image eagerly loads with fixed dimensions; Home image lazy-loads. Optional finite motion remains scoped to prefers-reduced-motion:no-preference (source verified, not browser emulated).
+
+Deployed source `19f998d`, preview version `da5cf4c61975b623`: https://custom-label-bottle--html-review-xew97p5g.web.app/ai-assistant . Expires 16 October 2026 at 02:24:01 IST (15 October 20:54:01 UTC). Build and all 10 existing meaningful tests plus static/legacy checks pass. Local and hosted Home/AI measured at 1280/768/390/320px with zero horizontal overflow and zero occurrences of the repeated phrase. Hosted SVG loaded on both routes; actual screenshots inspected, Home assistant link clicked successfully. Script-blocked AI retains the illustration and all seven workflow steps. Hosted AI warning/error logs empty.
+
+All **48** hosted public files byte-match the committed build; **15** route/status/redirect checks pass. Preview remains platform-noindex. Production release `1768839261178000`, version `1d3468f820f8ce2c`, verified unchanged before/after. Backend, form controllers, schema, config and dependencies unchanged in this refinement. No real submissions/messages, assistant/CRM integration, merge or production deployment.
+
+Evidence: current chat `outputs/ai-assistant-refinement` contains screenshots, responsive measurements, exact file/route evidence and release record. Production still awaits explicit owner release authorization. Earlier implementation sections below are historical.
+
 Implementation authorized on owner return. Extends the professional Ink & Drink website with a separate stateless AI operations assistant project page; production is still gated by owner preview review. Architecture: [ai-assistant-architecture.md](ai-assistant-architecture.md). Blueprint remains the historical plan; current implementation status here supersedes its planning-only status.
 
 ## Completed local stages
