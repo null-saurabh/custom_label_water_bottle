@@ -1,5 +1,7 @@
 # AI assistant website review — 9 October 2026
 
+**Current status: owner-authorized website publication completed.** Live https://sauravcloud.online/ ; confirmed email founder@sauravcloud.online. Read [production release](production-release.md) for current source/version/evidence. Preview-only restrictions and inactive-email notes below are historical.
+
 ## Latest footer and homepage review — 9 October 2026
 
 Owner requested better copyright spacing, a professional footer, an explicit AI assistant heading on Home, spelling and navigation review; AI page content approved and unchanged apart from the shared footer. The shared navy footer now groups brand/bulk-enquiry CTA, five page links and confirmed phone/WhatsApp/address. Copyright has the same aligned content gutter as the footer at all widths, with responsive stacking and minimum 44px targets. Home now says “AI operations assistant.” as its prominent heading; “Connected work. Clearer next steps.” is supporting text. Mobile address whitespace was corrected after visual review.

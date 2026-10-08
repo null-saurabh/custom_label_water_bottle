@@ -1,6 +1,6 @@
 # Start here — account-switch resume
 
-**Current status: AI website page implemented and verified on review preview; production awaiting owner review.** Read [current AI review](ai-assistant-review.md) first. Historical resume sequence below records the earlier planning state; do not restart completed implementation. Current preference: **GPT-6.1 Sol, medium**. Future “let’s start” intent is recorded; do no implementation during this documentation checkpoint.
+**Current status: website published and production-verified at https://sauravcloud.online/ . Confirmed email founder@sauravcloud.online.** Read [production release](production-release.md) first. Source 7231671, live version 1bdf32573ca1a6f9. All previous planning/preview-only instructions below are historical and superseded by explicit owner publication authorization. Do not restart completed work. Current preference: **GPT-6.1 Sol, medium**.
 
 Different accounts may not share this chat history. Open the same local clone and read these repository documents; they are the source of continuity, not a promise that chats transfer across accounts.
 
@@ -18,4 +18,4 @@ Portable local plans/evidence: `/Users/saurav/Documents/Codex/2026-10-09/custom-
 
 ## Current next step
 
-Owner review of final preview at `/ai-assistant`, deployed build `04a6755`, version `4de4ef1aef504aa1`. Latest HEAD includes review docs beyond the deployed source checkpoint. See current handoff/review for evidence and limits. Live production unchanged; release only after explicit owner approval and refreshed rollback.
+Publication is complete. Continue only the next owner-requested change; check current GitHub PR #1 state and source checkout first. Production release/rollback/evidence are in [production release](production-release.md).

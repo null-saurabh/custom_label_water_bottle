@@ -1,5 +1,7 @@
 # Ink & Drink professional site review — 9 October 2026
 
+**Current status: owner-authorized website publication completed.** Live https://sauravcloud.online/ ; confirmed email founder@sauravcloud.online. Read [production release](production-release.md) for current source/version/evidence. Preview-only restrictions and inactive-email notes below are historical.
+
 Ready for owner preview review; production remains unchanged. Preview: https://custom-label-bottle--html-review-xew97p5g.web.app . Existing PR: https://github.com/null-saurabh/custom_label_water_bottle/pull/1 .
 
 ## Changes

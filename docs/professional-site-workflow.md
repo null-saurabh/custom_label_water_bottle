@@ -1,5 +1,7 @@
 # Professional website improvement workflow — 9 October 2026
 
+**Current status: owner-authorized website publication completed.** Live https://sauravcloud.online/ ; confirmed email founder@sauravcloud.online. Read [production release](production-release.md) for current source/version/evidence. Preview-only restrictions and inactive-email notes below are historical.
+
 Owner's new instruction supersedes exact visual parity and placeholder retention. Anthropic access can remain unverified; minor font differences are acceptable. Preserve the valid enquiry backend schema, original useful assets, historical links, CRM boundary and preview-before-production workflow.
 
 1. Audit actual public copy, factual claims, links and forms. Remove unconfirmed phone/email/address/map/hours, certificates/customer endorsements and response promises. Do not infer replacements. Correct 5x00 packs to 500 packs in displayed option and submitted string; retain monthlyQuantity field/schema.
