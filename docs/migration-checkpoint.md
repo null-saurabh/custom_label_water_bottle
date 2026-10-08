@@ -20,3 +20,9 @@ Screenshots and JSON evidence are in `/Users/saurav/Documents/Codex/2026-10-09/c
 No production merge/deploy is authorized here. Firebase access and project/site identity `custom-label-bottle` were revalidated. Live release remains `1768839261178000`, version `1d3468f820f8ce2c`, time `2026-01-19T16:14:21.178Z`; catch-all rewrite to `/index.html`. Refresh this reference immediately before an approved release. The separate CRM/customer records/rules/Storage were not touched.
 
 Final release sequence: owner reviews concrete preview and differences → refresh live rollback reference → merge agreed PR revision → release exact reviewed Hosting version/build to `live` → verify public routes/assets/forms initialization → if needed restore the previous version through Hosting release history. Do not submit real test enquiries as verification.
+
+## Verified preview record
+
+Preview https://custom-label-bottle--html-review-xew97p5g.web.app; version `dba86ae826e7f10e`; build `3370506965ecc31ed4aa6b1cd363732727ccfacf`; expiry 16 October 2026 12:33:47 AM IST. Final hosted 45-file checksum/HTTP checks pass. Final desktop Home recaptured; full final hosted tablet/phone screenshots blocked by repeated browser navigation timeouts. Prior desktop hosted forms and complete local responsive comparisons remain valid; do not claim a complete final hosted screenshot matrix.
+
+Firebase preview supplies noindex; production Hosting config does not globally set it. Coordinator reported the separate research fetcher could not access any of the three preview routes; Anthropic access/approval unverified. See [preview review](preview-review.md) for complete evidence, limits and release plan.
