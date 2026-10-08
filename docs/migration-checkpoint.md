@@ -1,50 +1,22 @@
-# Recovery checkpoint — 2026-10-08
+# Full HTML review checkpoint — 2026-10-09 (India time)
 
-## User's final scope
-Preserve the original UI, inquiry functionality and ALL original business/contact details, even placeholders. Remove only the unused Admin page. Build HTML/CSS marketing pages; keep production available. Prepare a preview and updated PR before the final production merge/deployment. Do not touch the separate CRM or customer records.
+The former hybrid/iframe checkpoint is superseded. All three public pages and both forms are now real HTML/CSS. No Flutter runtime or iframe ships in the static build. Existing branch `codex/ai-readable-html`, PR #1 against `master`.
 
-## Completed
-- Existing PR branch `codex/ai-readable-html`, PR #1 against `master`.
-- Semantic HTML Home and Contact with original assets, self-hosted Inter/Playfair fonts, exact contact details and map target.
-- Original Flutter inquiry form retained. Original contact form widget embedded at internal `/contact-form` with noindex metadata.
-- No changes to either form implementation, Firestore service, model or collection.
-- Removed Admin source/route; Hosting redirects `/admin` and descendants home. Legacy hash bookmarks handled.
-- Added Hosting-only config, reproducible assembly/build, local preview server, static checks and local form/schema tests.
-- Flutter release build passed.
-- Three Flutter form/schema tests passed; no inquiries submitted.
-- Static metadata/assets/links/contact parity checks passed.
-- Legacy hash-link tests passed.
-- Local HTTP: Home/Contact/Inquiry 200; Admin 301 to Home; unknown route 404.
-- Compared production and local desktop homepage at 1280px; closely matching.
-- Compared production and local mobile Home/Contact at 390px; corrected title wrapping and contact spacing. Inquiry renders at mobile width.
+## Current verification
 
-## Still required before release
-- Finish desktop Contact and Inquiry comparison and complete browser navigation/back/deep-link checks.
-- Verify JavaScript-disabled rendering in a browser (not yet done); capture final desktop/mobile screenshots.
-- Verify contact form validation in browser (local widget tests already pass), without creating records.
-- Check 320px/tablet widths for overflow.
-- Review final diff, improve formatting if needed, and rerun checks affected by any edits.
-- Deploy Firebase preview channel only, verify real Hosting routes/headers/content, capture preview URL/version.
-- Update PR title/body around final scope and attach verification evidence.
-- Re-read production release reference before final release; do not merge or deploy live in this execution chat.
+- Static build and nine Node tests pass, including original payload/validation/options/messages, real DOM pending/success/failure/retry, duplicate suppression, contact reset/inquiry retention, selection-order parity and real production adapter exercised with a fake Firebase SDK.
+- Static asset/contact/metadata/link checks and legacy-route tests pass. Original Dart forms/service/model remain unchanged. Only unused Admin Dart route/source is removed.
+- All three HTML pages captured at actual 1280×844, 768×844, 390×844 and 320×844. No horizontal page overflow measured. Lazy desktop-only Home images below the mobile breakpoint can remain unfetched because that section is hidden; this is not a broken visible image.
+- Original desktop Contact and Inquiry top/lower sections compared, plus all three pages at 320px and 768px. HTML font weights, native controls, some wrapping/spacing differ. Small-screen hero artwork overlaps copy in both versions. Original 320px Contact phone/email/footer wrap or clip more severely; HTML fits them better. Tablet Contact card widths/trust-strip wrapping also differ.
+- Actual browser rendering with CSP blocking all page scripts inspected on Home, Contact and Inquiry; actual content/images/forms remain visible. Navigation and sample anchor work; sending is disabled with explanation/contact alternatives. This was not a global browser JavaScript toggle. Legacy hash migration needs scripts.
+- Browser back/forward/refresh, deep links, old Inquiry/Contact/Admin hash links (including query preservation), Admin descendants, internal form redirect and trailing slash tested.
+- Local mock browser forms: empty/invalid validation, focus on first error, keyboard submission, pending, failure/retry/success, Contact reset and Inquiry retention verified. No real test enquiries submitted.
+- Isolated local returning-cache fixture: old worker controls a cached root shell, upgrade to actual retirement worker refreshes the window into HTML; Flutter's three named caches are removed, worker unregistered, unrelated fixture cache retained. This simulates the update lifecycle rather than modifying a real returning production user's storage.
 
-## Commands / locations
-Repository: `/Users/saurav/Documents/Codex/2026-10-08/realtime-voice-chat-3/work/custom_label_water_bottle`
-Flutter: `/Users/saurav/Documents/Codex/2026-10-08/realtime-voice-chat-3/work/flutter_sdk/bin/flutter`
+Screenshots and JSON evidence are in `/Users/saurav/Documents/Codex/2026-10-09/custom-label-bottle-preview-review/outputs/`. See final preview report there and the forthcoming Hosting record below. Historical checkpoints remain for provenance, not current instructions to pause.
 
-```sh
-python3 scripts/build_site.py --flutter /Users/saurav/Documents/Codex/2026-10-08/realtime-voice-chat-3/work/flutter_sdk/bin/flutter
-python3 scripts/build_site.py --assemble-only # only for HTML/CSS-only changes after Dart build
-python3 scripts/check_site.py
-node scripts/check_legacy_links.cjs
-/Users/saurav/Documents/Codex/2026-10-08/realtime-voice-chat-3/work/flutter_sdk/bin/flutter --no-version-check test --no-pub test/migration_forms_test.dart
-python3 scripts/serve_site.py --port 8080
-```
+## Production boundary
 
-Local server was running on http://127.0.0.1:8080 (exec session 29464); verify before restarting. Browser testing uses `mcp__cua_repl` only. Browser handles may not survive a usage interruption; reconnect through documented APIs. Reset the temporary 390×844 viewport when finished. Current in-app-browser preview tab is 2, production reference tab is 1.
+No production merge/deploy is authorized here. Firebase access and project/site identity `custom-label-bottle` were revalidated. Live release remains `1768839261178000`, version `1d3468f820f8ce2c`, time `2026-01-19T16:14:21.178Z`; catch-all rewrite to `/index.html`. Refresh this reference immediately before an approved release. The separate CRM/customer records/rules/Storage were not touched.
 
-Existing production version: `projects/custom-label-bottle/sites/custom-label-bottle/versions/1d3468f820f8ce2c`; release `1768839261178000`, timestamp `2026-01-19T16:14:21.178Z`. Full CLI channel output is ignored at `work/hosting-channels-before.json`. Roll back through Firebase Hosting release history if needed. Only project/site `custom-label-bottle` is in scope.
-
-Firebase CLI authentication worked. `hosting:channel:list` requires this repository's firebase.json. A custom internal-API release read returned 403; the supported CLI command succeeded and supplied the reference above. Build requires sandbox escalation for Flutter's local cache/telemetry state; local HTTP serving/network calls also needed normal escalation. Do not print or read authentication tokens.
-
-No Firebase preview deployment or production change has occurred. PR metadata has not yet been rewritten. First code checkpoint: `ecc7495`.
+Final release sequence: owner reviews concrete preview and differences → refresh live rollback reference → merge agreed PR revision → release exact reviewed Hosting version/build to `live` → verify public routes/assets/forms initialization → if needed restore the previous version through Hosting release history. Do not submit real test enquiries as verification.

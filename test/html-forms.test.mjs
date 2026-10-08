@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
+import { build } from 'esbuild';
 import { createPayload, validate, QUANTITIES, BOTTLE_SIZES, BUSINESS_TYPES, COLLECTION } from '../marketing/js/form-domain.mjs';
 import { bindForm } from '../marketing/js/form-controller.mjs';
 
@@ -73,4 +74,37 @@ test('production adapter adds a server timestamp and cannot switch project or co
  const config=JSON.parse(await readFile(new URL('../config/firebase-web.json',import.meta.url),'utf8'));
  assert.equal(config.projectId,'custom-label-bottle');
  assert.doesNotMatch(adapter,/location|searchParams|localStorage|mock/i);
+});
+
+ test('inquiry preserves bottle selection order through deselect and reselect', async () => {
+  const dom = new JSDOM(await readFile(new URL('../marketing/inquiry.html', import.meta.url), 'utf8'));
+  const previous = globalThis.FormData; globalThis.FormData = dom.window.FormData;
+  try {
+   const form = dom.window.document.querySelector('form'); let submitted;
+   bindForm(form, async payload => { submitted = payload; });
+   form.elements.businessName.value = 'Fixture'; form.elements.phone.value = '9000000000';
+   form.elements.monthlyQuantity.value = '100 packs';
+   const toggle = (value, checked) => { const field = [...form.elements.bottleSizes].find(x => x.value === value); field.checked = checked; field.dispatchEvent(new dom.window.Event('change', {bubbles:true})); };
+   toggle('1 L', true); toggle('250 ml', true); toggle('1 L', false); toggle('1 L', true);
+   form.dispatchEvent(new dom.window.Event('submit', {cancelable:true}));
+   assert.deepEqual(submitted.bottleSizes, ['250 ml', '1 L']);
+  } finally { globalThis.FormData = previous; dom.window.close(); }
+ });
+
+test('real production adapter calls Firebase addDoc with original target, payload and timestamp using fake SDK', async () => {
+ const result = await build({entryPoints:['marketing/js/firebase-adapter.mjs'],bundle:true,write:false,format:'esm',platform:'node',plugins:[{name:'fake-firebase-sdk',setup(builder){
+  builder.onResolve({filter:/^firebase\//}, args => ({path:args.path,namespace:'fake-sdk'}));
+  builder.onLoad({filter:/.*/,namespace:'fake-sdk'}, args => ({contents:args.path==='firebase/app'
+   ? 'export const initializeApp = config => ({config});'
+   : `export const getFirestore = app => ({app});
+      export const collection = (db, path) => ({db,path});
+      export const serverTimestamp = () => ({fixtureServerTimestamp:true});
+      export const addDoc = async (ref, data) => ({ref,data});`,loader:'js'}));
+ }}]});
+ const adapter = await import('data:text/javascript;base64,'+Buffer.from(result.outputFiles[0].text).toString('base64'));
+ const payload = createPayload(fixture,'inquiry');
+ const saved = await adapter.submitEnquiry(payload);
+ assert.equal(saved.ref.db.app.config.projectId,'custom-label-bottle');
+ assert.equal(saved.ref.path,'enquiries');
+ assert.deepEqual(saved.data,{...payload,createdAt:{fixtureServerTimestamp:true}});
 });

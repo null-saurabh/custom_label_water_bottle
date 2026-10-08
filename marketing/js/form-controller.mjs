@@ -6,6 +6,8 @@ export function bindForm(form, submitEnquiry) {
   const status = form.querySelector('[role="status"]');
   const buttonText = button.textContent;
   let pending = false;
+  // Dart keeps bottle sizes in selection order, including deselect/reselect.
+  let selectedSizes = [...form.querySelectorAll('[name="bottleSizes"]:checked')].map(field => field.value);
   const showErrors = errors => {
     for (const node of form.querySelectorAll('[data-error-for]')) {
       const name = node.dataset.errorFor;
@@ -16,6 +18,10 @@ export function bindForm(form, submitEnquiry) {
     }
   };
   const onChange = event => {
+    if (event.target.name === 'bottleSizes') {
+      selectedSizes = selectedSizes.filter(value => value !== event.target.value);
+      if (event.target.checked) selectedSizes.push(event.target.value);
+    }
     // Original selection widgets clear their own errors immediately.
     if (['monthlyQuantity', 'bottleSizes'].includes(event.target.name)) {
       const node = form.querySelector(`[data-error-for="${event.target.name}"]`);
@@ -28,7 +34,9 @@ export function bindForm(form, submitEnquiry) {
     if (pending) return;
     const data = new FormData(form);
     const values = Object.fromEntries(data);
-    values.bottleSizes = data.getAll('bottleSizes');
+    const checked = data.getAll('bottleSizes');
+    values.bottleSizes = [...selectedSizes.filter(value => checked.includes(value)),
+      ...checked.filter(value => !selectedSizes.includes(value))];
     const payload = createPayload(values, kind);
     const errors = validate(payload, kind);
     showErrors(errors);

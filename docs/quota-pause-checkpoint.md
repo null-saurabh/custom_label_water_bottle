@@ -1,3 +1,5 @@
+> Historical checkpoint. Current work resumed with owner authorization; see [current checkpoint](migration-checkpoint.md). Earlier pause/remaining-work statements below describe the previous session.
+
 # Quota pause checkpoint — 2026-10-09
 
 Work is paused at the user's request to conserve quota. No implementation changes were made after the previous checkpoint. Repository status was verified clean at commit `18504630c2cd7f7b8e01e170eb5c0b32e72c6692` before writing this checkpoint.

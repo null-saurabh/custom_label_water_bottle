@@ -1,3 +1,5 @@
+> Historical checkpoint. Current work resumed with owner authorization; see [current checkpoint](migration-checkpoint.md). Earlier pause/remaining-work statements below describe the previous session.
+
 # Full HTML recovery checkpoint — 2026-10-08
 
 Read this before the older handoff: it updates the intermediate hybrid state described in `ai-website-handoff.md`.
