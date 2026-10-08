@@ -8,7 +8,7 @@ Professional Home, Contact, Bulk enquiry and 404 with real initial HTML; clear t
 
 ## Verification
 
-Build, ten Node fake-adapter/DOM tests, static checks and legacy-link checks pass. All three pages measured at 1280, 768, 390 and 320 pixels without horizontal overflow. Desktop Home/Contact and small-phone Home/Inquiry visually inspected; screenshots saved. Lazy lifestyle image loaded after scrolling and fully visible at desktop and 320px. Local contact mock failure/retry/success/reset and enquiry keyboard success/retention observed; no real records submitted. Unit tests cover pending/duplicate suppression, failure/retry and selection order for both forms, plus actual Firebase adapter with fake SDK. Contact script-blocked via CSP remains readable, submit disabled and phone/WhatsApp alternatives visible. Gallery link from Inquiry navigated to the actual Home anchor. Earlier cache-retirement fixture verification remains applicable because worker is unchanged.
+Build, ten Node fake-adapter/DOM tests, static checks and legacy-link checks pass. All three pages measured at 1280, 768, 390 and 320 pixels without horizontal overflow. Desktop and small-phone pages visually inspected; screenshots saved. Lazy lifestyle image loaded after scrolling and fully visible at desktop and 320px. Local contact mock failure/retry/success/reset and enquiry keyboard success/retention observed; no real records submitted. Unit tests cover pending/duplicate suppression, failure/retry and selection order for both forms, plus actual Firebase adapter with fake SDK. Contact script-blocked via CSP remains readable, submit disabled and phone/WhatsApp alternatives visible. Gallery link from Inquiry navigated to the actual Home anchor. Earlier cache-retirement fixture verification remains applicable because worker is unchanged.
 
 ## Review assumptions and limits
 
@@ -17,3 +17,9 @@ Hours are an owner-authorized assumption: Monday–Saturday 9 AM–6 PM IST; Sun
 ## Release boundary
 
 Only Hosting channel html-review may be updated. No live deployment/merge, rules/database/Storage changes, CRM operations or real customer test data. Hosted byte verification, deployed build/version, preview expiry and rollback reference are appended after deployment.
+
+## Final preview evidence
+
+Reviewed/deployed build commit: `34fdb2b`. Preview version: `d9410eacec54d3fa`. Expires 15 October 2026 at 19:36:45 UTC (16 October at 01:06:45 IST). All 46 deployed files byte-match the local build; 12 route/status checks pass, preview X-Robots-Tag is noindex. All pages fit 1280/768/390/320px on the hosted preview. Some large images were still downloading during the first immediate captures; Home was recaptured after all seven images were confirmed loaded, with full lifestyle text visible. No missing hosted files.
+
+Live release verified unchanged before/after: `1768839261178000`, version `1d3468f820f8ce2c`, released 19 January 2026 at 16:14:21.178 UTC. No production merge/deploy occurred. The older custom direct API helper returned 403; supported CLI channel listing succeeded and supplied the live/preview release verification.
