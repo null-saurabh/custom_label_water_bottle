@@ -7,3 +7,5 @@ Firebase project/site is `custom-label-bottle`, collection `enquiries`. Never to
 Preview channel `html-review` has the real production adapter: only invalid submissions can be tested there. Use loopback `scripts/serve_site.py --mock` and fake-SDK tests for success/failure. No real enquiry records should be created for review. Script-blocking fixture uses `--no-scripts`. Original Dart is historical reference; exact parity and dummy contact preservation are superseded.
 
 Production merge/deploy requires owner's review decision. Only Hosting preview is authorized now. Revalidate live release rollback before any approved production release; Git revert alone does not roll back Hosting.
+
+Latest owner discussion and remaining steps: [owner-discussion-checkpoint.md](owner-discussion-checkpoint.md). The proposed separate AI assistant page is not built or approved for implementation.
