@@ -52,7 +52,7 @@ contact = (SITE / 'contact.html').read_text()
 for value in ['+91 8112552320','tel:+918112552320','support@yourwater.com','mailto:support@yourwater.com','123, Business Complex, Bengaluru, India','query=Patna%2C%20India','2024 Custom Label Water Bottles. All rights reserved.']:
     assert value in contact,value
 
-# The production data path and form implementations must be byte-for-byte unchanged.
+# Keep Dart reference implementations unchanged; JS behavior/schema parity is tested in html-forms.test.mjs.
 for path in ['lib/models/enquiry_form_model.dart','lib/services/enquiry_service.dart','lib/web pages/contact_us_screen/widgets/contact_hero_left/widgets/contact_form_card.dart']:
     before = subprocess.check_output(['git','show',f'57d2665:{path}'],cwd=ROOT)
     assert before == (ROOT/path).read_bytes(), path
