@@ -18,7 +18,7 @@ class Document(HTMLParser):
     def handle_starttag(self, tag, attrs):
         self.nodes.append((tag, dict(attrs)))
 
-for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquiry'),('contact-form','/contact-form')]:
+for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquiry')]:
     source = (SITE / f'{name}.html').read_text()
     doc = Document(source)
     assert '<!-- PAGE_' not in source, name
@@ -38,10 +38,15 @@ for name, canonical in [('index','/'),('contact','/contact'),('inquiry','/inquir
             assert any(p.is_file() for p in candidates), (name,target)
         if tag == 'a' and a.get('href','').startswith('#'):
             assert any(b.get('id') == a['href'][1:] for _,b in doc.nodes), (name,a)
-    if name in ('index','contact'):
+    if name in ('index','contact','inquiry'):
         assert 'flutter_bootstrap' not in source
         assert 'main.dart.js' not in source
-    if name == 'contact-form':assert 'content="noindex"' in source
+    assert '<iframe' not in source
+    if name in ('contact','inquiry'):
+        assert any(t == 'form' for t,a in doc.nodes), name
+        assert any(t == 'input' and a.get('name') == 'phone' for t,a in doc.nodes), name
+        assert not any(t == 'style' and 'display:none' in str(a) for t,a in doc.nodes)
+assert not (SITE/'main.dart.js').exists()
 
 contact = (SITE / 'contact.html').read_text()
 for value in ['+91 8112552320','tel:+918112552320','support@yourwater.com','mailto:support@yourwater.com','123, Business Complex, Bengaluru, India','query=Patna%2C%20India','2024 Custom Label Water Bottles. All rights reserved.']:

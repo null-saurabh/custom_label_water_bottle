@@ -4,18 +4,6 @@ import 'package:flutter/material.dart';
 import '../core/responsive.dart';
 import 'premium_button.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter/foundation.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-// Marketing pages are real documents on the web; retain native app routing.
-void openMarketingPage(BuildContext context, String path) {
-  if (kIsWeb) {
-    launchUrl(Uri.base.resolve(path), webOnlyWindowName: '_self');
-  } else {
-    context.go(path);
-  }
-}
-
 
 class SiteHeader extends StatelessWidget {
   final Color? bgColor;
@@ -35,7 +23,7 @@ class SiteHeader extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              openMarketingPage(context, '/'); // HOME ROUTE
+              context.go('/'); // HOME ROUTE
             },
             child: Row(
               children: [
@@ -77,7 +65,7 @@ class SiteHeader extends StatelessWidget {
           NavItem(
             label: 'Home',
             onTap: () {
-              openMarketingPage(context, '/'); // HOME ROUTE
+              context.go('/'); // HOME ROUTE
             },
           ),
           Responsive.isMobile(context)
@@ -90,14 +78,14 @@ class SiteHeader extends StatelessWidget {
               :NavItem(
             label: 'Samples',
             onTap: () {
-              openMarketingPage(context, '/contact'); // HOME ROUTE
+              context.go('/contact'); // HOME ROUTE
             },
           ),
 
           NavItem(
             label: 'Contact',
             onTap: () {
-              openMarketingPage(context, '/contact'); // HOME ROUTE
+              context.go('/contact'); // HOME ROUTE
             },
           ),
 
