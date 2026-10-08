@@ -8,10 +8,8 @@ Preview channel `html-review` has the real production adapter: only invalid subm
 
 Production merge/deploy requires owner's review decision. Only Hosting preview is authorized now. Revalidate live release rollback before any approved production release; Git revert alone does not roll back Hosting.
 
-Latest owner discussion and remaining steps: [owner-discussion-checkpoint.md](owner-discussion-checkpoint.md). The proposed separate AI assistant page is not built or approved for implementation.
+Current AI website extension is implemented and preview-verified: [ai-assistant-review.md](ai-assistant-review.md). Architecture [ai-assistant-architecture.md](ai-assistant-architecture.md); historical plan [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Owner authorized implementation on return; old pause/planning-only notes are historical. Functional checkpoint 114b8de, polished local review 33b788e, final deployed build 37a5860. Preview version e3d15d9cfbec14d6, expires 16 October 02:01:09 IST. All 47 files and 15 routes verified; actual latest website screenshots saved.
 
-Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.
+Next: owner reviews the exact preview, then explicit production approval and refreshed rollback reference before Hosting release/merge. Do not restart implementation/migration or imply the assistant product was built. Website extension stateless; no new dependencies, assets/backend/CRM integration. Owner-reported prototype features remain uninspected; Claude/business flow/pilot remain planned.
 
-Account-switch checkpoint: the AI blueprint now includes an executable phased runbook, checkpoints A–E, evidence/release gates and exact resume steps. Planning is complete; implementation is pending. Next: inspect existing state and review exact Phase 1 copy, then proceed only with owner-authorized implementation. Real assistant screenshots are optional, not a blocker.
-
-Resume entry point: [START-HERE.md](START-HERE.md). Owner paused implementation until returning with another account; finish documentation backup only now. Repository docs preserve continuity even if chat history is unavailable.
+Resume entry point: [START-HERE.md](START-HERE.md); owner discussion [owner-discussion-checkpoint.md](owner-discussion-checkpoint.md). Git docs preserve continuity across accounts.

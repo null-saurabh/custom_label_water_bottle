@@ -19,3 +19,13 @@ Owner-reported frontend HUD, Hermes/custom skills, Gemini Live voice and MCP con
 Next D: build committed source; html-review-only deploy; exact hosted file hashes/route/meta/assets/404; fresh desktop/mobile website screenshots; current PR/handoff. Then owner review. No live merge/deploy, rules/Storage/database changes. Live baseline from supported channel listing remains version `1d3468f820f8ce2c`, release `1768839261178000`; verify unchanged after preview.
 
 Pre-release contrast review found concept-caption text at 4.44:1 on its darkest pale background; darkened it before final deployment. This is a visual QA correction, with no behaviour/schema changes.
+
+## D — Final hosted review
+
+Exact deployed build: `37a5860`; final preview version `e3d15d9cfbec14d6`. Preview https://custom-label-bottle--html-review-xew97p5g.web.app/ai-assistant expires 16 October 2026 at 02:01:09 IST (15 October 20:31:09 UTC). All **47** hosted files byte-match the reviewed build; **15** route/status checks pass, including new clean route/redirects, sitemap/robots/worker, retired routes and real 404. Preview X-Robots-Tag noindex is platform-provided; production config unchanged. First asset download comparison timed out; lower-concurrency retry and final-version comparison passed.
+
+Final hosted AI screenshots at 1280/768/390/320px show loaded fonts, seven steps, zero overflow and corrected caption colour. Shared header targets measure 44px. Hosted existing pages also measured at all widths with zero overflow; homepage images were allowed to load fully and verified before fresh final-version captures. Phone Contact/tablet Inquiry and desktop Home/AI inspected visually. Normal AI page browser error/warning logs empty. Exact file HTTP checks provide no missing asset evidence; no separate browser network-panel export capability used. Gallery, history/refresh/focus and script-blocked checks described above are actual local browser observations. Reduced-motion fallback is source-verified only, not browser-emulated.
+
+Live production release verified unchanged before/after all preview updates: `1768839261178000`, version `1d3468f820f8ce2c`. Existing Firebase SDK/form files/config/dependencies show zero diff from implementation baseline `e75e812`. No merge/live deploy or assistant/CRM work.
+
+Evidence under this chat's `outputs/ai-assistant-review`: hosted hash/status manifest, final release record, viewport measurements, screenshots and gallery. Remaining step is owner preview review and explicit production release authorization; refresh rollback before that later release. Website page completion does not claim assistant product/business workflow completion.

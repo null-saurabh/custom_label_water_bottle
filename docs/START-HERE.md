@@ -1,6 +1,6 @@
 # Start here — account-switch resume
 
-**Status: planning complete; implementation paused until the owner returns.** No AI assistant page/assets have been implemented or deployed. Current preference: **GPT-6.1 Sol, medium**. Future “let’s start” intent is recorded; do no implementation during this documentation checkpoint.
+**Current status: AI website page implemented and verified on review preview; production awaiting owner review.** Read [current AI review](ai-assistant-review.md) first. Historical resume sequence below records the earlier planning state; do not restart completed implementation. Current preference: **GPT-6.1 Sol, medium**. Future “let’s start” intent is recorded; do no implementation during this documentation checkpoint.
 
 Different accounts may not share this chat history. Open the same local clone and read these repository documents; they are the source of continuity, not a promise that chats transfer across accounts.
 
@@ -15,3 +15,7 @@ Different accounts may not share this chat history. Open the same local clone an
 Website project/site is `custom-label-bottle`, collection `enquiries`. Preserve schema; no assistant/CRM repository work, no `custom-label-bottle-crm` changes, no real customer/test enquiry records or WhatsApp messages. Assistant progress is owner-reported prototype work; business workflow/pilot/Claude evaluation remain planned. Do not imply completed integrations.
 
 Portable local plans/evidence: `/Users/saurav/Documents/Codex/2026-10-09/custom-label-bottle-preview-review/outputs/ink-drink-review`. Git-tracked documents are primary; browser handles, ignored work scripts and local credentials do not transfer with Git.
+
+## Current next step
+
+Owner review of final preview at `/ai-assistant`, deployed build `37a5860`, version `e3d15d9cfbec14d6`. Latest HEAD includes review docs beyond the deployed source checkpoint. See current handoff/review for evidence and limits. Live production unchanged; release only after explicit owner approval and refreshed rollback.
