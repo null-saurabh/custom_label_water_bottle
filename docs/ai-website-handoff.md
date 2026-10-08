@@ -13,3 +13,5 @@ Latest owner discussion and remaining steps: [owner-discussion-checkpoint.md](ow
 Planning-only page blueprint: [ai-assistant-blueprint.md](ai-assistant-blueprint.md). Saved page/content/review plan; HTML implementation and deployment remain unapproved and have not occurred.
 
 Account-switch checkpoint: the AI blueprint now includes an executable phased runbook, checkpoints A–E, evidence/release gates and exact resume steps. Planning is complete; implementation is pending. Next: inspect existing state and review exact Phase 1 copy, then proceed only with owner-authorized implementation. Real assistant screenshots are optional, not a blocker.
+
+Resume entry point: [START-HERE.md](START-HERE.md). Owner paused implementation until returning with another account; finish documentation backup only now. Repository docs preserve continuity even if chat history is unavailable.
